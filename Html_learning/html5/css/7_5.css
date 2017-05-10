@@ -1,0 +1,55 @@
+body,
+div{
+	padding: 0px;
+	margin: 0px;
+}
+.bodyer{
+	border: 1px #ccc solid;
+	width: 732px;
+	height: 554px;
+	background-image: url(../img/img7/img7_5/adver-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0px auto;
+}
+img{
+	float: left;
+	margin-right:  20px;
+}
+.bodyer div:first-child{
+	height: 198px;
+	position: relative;
+	top: 70px;
+	padding: 0px 50px 8px 30px;
+}
+.bodyer div:first-child>p{
+	padding-bottom: 10px;
+}
+.bodyer div:nth-child(2){
+	background: #fff;
+	width: 500px;
+	height: 134px;
+	border: 1px #ccc solid;
+	position: relative;
+	left: 28px;
+	top: 62px;
+	padding-left: 4px;
+}
+.bodyer div:last-child{
+	background: #fff;
+	width: 420px;
+	height: 134px;
+	border: 1px #ccc solid;
+	position: relative;
+	top: 50px;
+	left: 250px;
+	padding-left: 4px;
+}
+p{
+	font-size: 13px;
+	line-height: 1.6em;
+	text-indent: 2em;
+}
+span{
+	color: red;
+}

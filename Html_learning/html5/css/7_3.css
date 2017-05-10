@@ -1,0 +1,34 @@
+body,
+div,
+ul,
+li{
+	padding: 0px;
+	margin: 0px;
+}
+div:first-child{
+	/*border: 1px #f00 solid;*/
+	background: #ccc;
+	width: 426px;
+	height: 130px;
+}
+li{
+	list-style: none;
+	display: inline;
+	position: relative;
+	left:266px;
+	top:-32px;
+}
+/*div:last-child{
+	width: 158px;
+	position: absolute;
+	left: 264px;
+	top:98px;
+}*/
+a{
+	color: #000;
+	border: 1px #ccc solid;
+	text-decoration: none;
+	background: #fff;
+	display: inline-block;
+	padding: 3px 8px;
+}

@@ -1,0 +1,19 @@
+body,div{
+	margin: 0px;
+	padding: 0px;
+}
+.conterer{
+	text-align: center;
+}
+spen{
+	margin-left: 50px;
+}
+body div:nth-child(1)>p{
+	color:#ccc;
+}
+body div:last-child>p{
+	text-indent: 2em;
+}
+.bolder{
+	font-weight: bold;
+}

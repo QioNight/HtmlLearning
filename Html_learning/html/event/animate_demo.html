@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+            $('.box2').css(
+                    {
+                    'top' : $('.box1').height()/2, 
+                    'left' : $('.box1').width()/2
+                    }
+                ).animate(
+                        {
+                        'width' : 300, 'height' : 300, 
+                        'top' : ($('.box1').height() - 300)/2, 
+                        'left' : ($('.box1').width() - 300)/2, 
+                        opacity : 0.2, 
+                        }
+                    ,1000);
+
+        })
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box1 {
+            width: 500px;
+            height: 500px;
+            background: #ccc;
+            margin: 10px auto;
+            position: relative;
+            text-align: center;
+        }
+        .box2 {
+            background: #f00;
+            display: inline-block;
+            position: absolute;
+            line-height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            <buuton id="btn">点击</buuton>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+#contenter{
+	width: 946px;
+	text-align: center;
+	margin: 0px auto;
+}
+#titler{
+	text-align: left;
+}
+#bodyer:after{
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0px;
+}
+#bodyer{
+	zoom: 1;
+}
+#body_left{
+	width: 200px;
+	text-align: left;
+	float: left;
+}
+#body_right{
+	width: 180px;
+	height: 700px;
+	text-align: center;
+	float: right;
+}
+#titler>div{
+	background-image: url(../img/szu_job/head_nav_left.gif),url(../img/szu_job/head_nav_center.gif),url(../img/szu_job/head_nav_right.gif);
+	background-repeat: no-repeat,repeat-x,no-repeat;
+	background-position: left,center,right;
+	float: left;
+	width: 628px;
+	overflow: auto;
+}
+input{
+	width: 110px;
+}
+#titler img{
+	vertical-align: top;
+	float: left;
+}
+#titler p{
+	clear: both;
+}
+.nav>li{
+	padding: 0px 12px 3px;
+	list-style: none;
+	float: left;
+	border-left: 2px #fff solid;
+}
+a{
+	text-decoration: none;
+	font: bold 12px "微软雅黑";
+	color: #000;
+}
+.nav>li>a:hover{
+	color: #f00;
+	/*position: relative;*/
+}
+.nav_2>li{
+	list-style: none;
+}
+.nav div{
+	display: none;
+	position: absolute;
+}
+.nav>li:hover div{
+	display: block;
+	z-index: 1;
+}

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>普通登录</title>
+        <style>
+            #div2{
+                position:absolute;
+                left:400px;
+                top:280px;
+                width:200px;
+            }
+            .form1{
+                width:360px;
+                height:180px;
+                border:2px solid blue;
+                }
+            td{
+                width:60px;
+            }
+            /*table,td{
+                border:1px solid red;
+            }*/
+        </style>
+	</head>
+	<body>
+    	<h3><strong>普通登录</strong></h3>
+		 <form action="#" class="form1" >
+            <table border="0">
+        	    <tr>
+                    <td>&nbsp;用户名</td>
+                    <td><input type="text" /></td>
+                    <td>@163.com</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;密码</td>
+                    <td><input type="password" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;版本</td>
+                    <td>
+                        <select name=""> 
+                            <option>默认</option> 
+                            <option>新版本</option> 
+                            <option>老版本</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" />男</td>
+                    <td><input type="radio" name="sex" />女</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;<input type="checkbox" />SSL</td>
+                    <td><input type="checkbox" />自动登录</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="登录" /></td>
+                    <td><input type="reset" value="注销" /></td>
+                </tr>
+            </table> 
+        </form>
+        <hr />
+        <div>
+            <form action="#">
+            <table>
+                <tr>
+                    <td>姓名</td>
+                    <td><input type="text" name="studen_name" value="请输入姓名"></td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td>
+                        男<input type="radio" name="studen_sex" value="man">
+                        女<input type="radio" name="studen_sex" value="woman">
+                    </td>
+                </tr>
+                <tr>
+                    <td>学号</td>
+                    <td><input type="text" name="studen_id" maxlength="12"></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="studen_password" maxlength="16"></td>
+                </tr>
+                <tr>
+                    <td>主修</td>
+                    <td>
+                        语文<input type="checkbox" name="subject" value="linguistic ">
+                        数学<input type="checkbox" name="subject" value="math"><br />
+                        英语<input type="checkbox" name="subject" value="english">
+                    </td>
+                </tr>
+                <tr>
+                    <td>选修</td>
+                    <td>
+                        <select name="subject" size="2" multiple="multiple">
+                            <!-- multiple.多选,按住ctrl -->
+                            <option value="physics">物理</option>
+                            <option value="chemistry">化学</option>
+                            <option value="biology">生物</option>
+                            <option value="physics2">物理2</option>
+                            <option value="chemistry2">化学2</option>
+                            <option value="biology2">生物2</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="提交"></td>
+                    <td><input type="reset" name="reset" value="撤销"></td>
+                </tr>
+            </table>
+            </form>
+        </div>
+        <div id="div2">
+            <form action="#">
+                <input type="image" src="img/lli.jpg" width="300" />
+                <!-- <input type="reset"> -->
+            </form>
+        </div>
+   	</body>
+</html>

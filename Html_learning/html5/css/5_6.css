@@ -1,0 +1,57 @@
+div{
+	/*border: 2px solid #00f;*/
+	width: 270px;
+	padding: 0px;
+	margin: 0px;
+}
+p{
+	color:#fff;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.5em;
+	background-color: #008000;
+	background-image: url(../img/img5/img5_6/bang.gif);
+	background-repeat: no-repeat;
+	background-position: 126px 6px;		
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+	font-size: 19px;
+}
+li{
+	font-size: 17px;
+	line-height: 2em;
+}
+li:first-child{
+	list-style-image: url(../img/img5/img5_6/book_no01.gif);
+}
+li:nth-child(2){
+	list-style-image: url(../img/img5/img5_6/book_no02.gif);
+}
+li:nth-child(3){
+	list-style-image: url(../img/img5/img5_6/book_no03.gif);
+}
+li:nth-child(4){
+	list-style-image: url(../img/img5/img5_6/book_no04.gif);
+}
+li:nth-child(5){
+	list-style-image: url(../img/img5/img5_6/book_no05.gif);
+}
+li:nth-child(6){
+	list-style-image: url(../img/img5/img5_6/book_no06.gif);
+}
+li:nth-child(7){
+	list-style-image: url(../img/img5/img5_6/book_no07.gif);
+}
+li:nth-child(8){
+	list-style-image: url(../img/img5/img5_6/book_no08.gif);
+}
+li:nth-child(9){
+	list-style-image: url(../img/img5/img5_6/book_no09.gif);
+}
+li:last-child{
+	list-style-image: url(../img/img5/img5_6/book_no10.gif);
+}

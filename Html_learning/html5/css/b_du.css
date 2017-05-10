@@ -1,0 +1,51 @@
+div{
+	/*border: 1px solid #000;*/
+	text-align: right;
+}
+div:nth-child(2){
+	text-align:center;
+}
+div:nth-child(3),#footer{
+	vertical-align: middle;
+	text-align:center;
+}
+div:nth-child(3){
+	color: #A1A1A1;
+	font-size: 10px;
+	font-weight: bold;
+	margin-top: 160px;
+}
+#footer{
+	margin-top: 20px;
+	font-size: 10px;
+	line-height: 2em;
+}
+li{
+	list-style: none;
+	display: inline;
+}
+li>a{
+	color: #000;
+}
+#footer a,#footer span{
+	color: #A1A1A1;
+}
+#footer span:last-child{
+	margin-left: 30px;
+}
+.a_margin{
+	margin-left: 18px;
+}
+#input_text{
+	width: 700px;
+	height: 29px;
+	background-image: url(../img/camera_new_5606e8f.png);
+	background-repeat: no-repeat;
+	background-position: 680px 11px;
+}
+#input_text:hover{
+	border-color: gainsboro;
+}
+#input_but{
+	height: 36px;
+}

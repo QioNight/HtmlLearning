@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function() {
+			console.log(Game);
+		})
+		var Game =  (function() {
+						$.getJSON('pushBox.json', function(data) {
+							var arr = [];
+							$.each(data, function(i, elem) {
+								var obj = {};
+								obj.Map = elem.Map;
+								obj.box = elem.box;
+								obj.person = elem.person;
+								arr.push(obj);
+								console.log(obj);
+							});
+							console.log(arr[0].Map);
+							return arr;
+							
+						});
+					})
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

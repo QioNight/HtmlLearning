@@ -1,0 +1,47 @@
+div{
+	font-size:30px;
+		/*字体大小.*/
+	font-style:italic;
+		/*字体风格.默认nomal(正常).italic(斜体).*/
+	font-weight:bold;
+		/*文字粗细.依次有lighter.normal.bold.bolder.*/
+	border:2px solid #a1a1a1;
+		/*边框及颜色.*/	
+	width:300px;
+	padding:30px 80px 40px; 
+		/*内边距.顺序为上右下左.(只有两个则是上下 左右.三个则是中间数字表示左右).*/
+	margin:60px;
+		/*外边距.同上.*/
+}
+#div1{
+	border-radius:80px 30px;
+		/*边角圆弧的弧度.顺序为从左上角顺时针(分写为border-top-left-radius).*/
+	box-shadow:10px 10px 30px red;
+		/*三个数字依次为向右偏移距离.向下偏移距离.虚化程度.*/
+	background:#dddddd;
+		/*背景色*/
+}
+#div2{
+	background-image:url(img/lli3.png);/*,url(img/lli2.jpg);*/
+		/*引入图片作为背景.多张则英文逗号隔开.*/
+	background-size:100% 100%;
+		/*若是用百分比(90%).则是相对于父元素的宽度和高度的百分比的大小.*/
+	/*background-position:left top,right bottom;*/
+		/*图片位置.*/
+	background-repeat:no-repeat;
+		/*repeat.图片是否重复.*/
+		/*多条属性{background: url(*.gif) right bottom no-repeat;}.*/
+	background-origin:content-box;
+		/*定位背景图片.border-box全覆盖.padding-box内边距向里.content-box内容中间.(依次向下包含).
+		content-box选了repeat重复则会由content大小重复.*/
+	/*background-clip:content-box;*/
+		/*图片剪裁.即使repeat不再重复.*/
+}
+#div3{
+	/*background: linear-gradient(40deg,red,blue);*/ 
+		/*Ndeg.带角度的线性渐变.*/
+	/*background: linear-gradient(to right,red,blue);*/ 
+		/*线性渐变.默认从上到下.*/
+	background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+		/*实现彩虹条纹渐变.*/
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script>
+		//地图生成
+		$(function() {
+			for(var i=0; i<10; i++) {
+				var oTr = document.createElement('tr');
+				for(var j=0; j<10; j++) {
+					var oTd = document.createElement('td');
+					var oBox = document.createElement('div');
+					oBox.className = 'box';
+					oBox.setAttribute('aTemp', [i, j])
+					oTd.appendChild(oBox);
+					oTr.appendChild(oTd);
+				}
+				$('table').append(oTr);
+			}
+
+			//随机生成雷
+			var iNum = 10;
+			while(true) {
+				var i = Math.floor(Math.random()*10);
+				var j = Math.floor(Math.random()*10);
+				$.each( $('.box'), function() {
+					if($(this).attr('aTemp') == [i, j] && $(this).hasClass('over') == false) {
+						$(this).addClass('over');
+						iNum--;
+					};
+				});
+				if(iNum <=0) {
+					break;
+				}
+			};
+			//点击判断
+			$.each( $('.box'), function() {
+				$(this).click(function() {
+					if($(this).hasClass('over')) {
+						alert('over!');
+					}else {
+						$(this).addClass('on-click');
+					}
+				});
+			});
+		});
+	</script>
+	<style>
+		* { 
+			padding: 0; 
+			margin: 0; 
+		}
+		div { 
+			margin: 80px auto; 
+			width: 300px;
+		}
+		.box {
+			width: 28px; 
+			height: 28px; 
+			margin: 1px; 
+			float: left; 
+			background: #ccc; 
+			text-align: center; 
+			line-height: 28px;
+		}
+		.on-click {
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<table></table>
+	</div>
+</body>
+</html>

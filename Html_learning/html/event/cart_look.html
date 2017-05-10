@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				margin: 20px;
+				padding-bottom: 5px;
+				position: relative;
+				border-bottom: 2px #f00 solid;
+			}
+			li>img {
+				width: 200px;
+				height: 100px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 200px;
+				margin-left: 100px;
+			}
+			li>span:nth-of-type(1) {
+				margin: 20px;
+			}
+			li>span:nth-of-type(2):before {
+				content: '￥';
+				margin-left: 200px;
+			}
+			li .btn_close {
+				display: inline-block;
+				padding: 2px 5px;
+				position: absolute;
+				right: 0;
+				cursor: pointer;
+			}
+			li .btn_close:hover {
+				background: #ccc;
+			}
+			li>button {
+				width: 30px;
+				height: 36px;
+			}
+			div>div:nth-of-type(1) {
+				position: relative;
+			}
+			div>div:nth-of-type(2) {
+				position: absolute;
+				right: 0;
+				margin-right: 280px;
+				padding-bottom: 300px;
+			}
+			h2 {
+				border-bottom: 5px #f00 solid;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var aDiv = document.getElementsByTagName('div');
+				aDiv[1].innerHTML = '购物车还没有东西...';
+				
+				var cookies=decodeURIComponent(document.cookie);
+				var aArrs = cookies.split('=');
+				aArrs = JSON.parse(aArrs[1]);
+				
+				var oUl = document.createElement('ul');
+				var iSub = 0;
+				if(aArrs.length != 0) {
+					aDiv[1].innerHTML = '';
+					
+					var oH2 = document.createElement('h2');
+					oH2.innerHTML = '购物车';
+					aDiv[1].appendChild(oH2);
+					
+					for(var i=0; i<aArrs.length; i++) {
+						var oLi = document.createElement('li');
+						
+						var oGoods = document.createElement('p');
+						oGoods.innerHTML = aArrs[i].goods;
+						oLi.appendChild(oGoods);
+						
+						var oImg = document.createElement('img');
+						oImg.src = aArrs[i].src;
+						oLi.appendChild(oImg);
+						
+						var oMinus = document.createElement('button');
+						var iNum = document.createElement('span');
+						var oAdd = document.createElement('button');
+						oMinus.innerHTML = '-';
+						oMinus.className = 'btn_minus';
+						iNum.innerHTML = aArrs[i].num;
+						oAdd.innerHTML = '+';
+						oAdd.className = 'btn_add';
+						oLi.appendChild(oMinus);
+						oLi.appendChild(iNum);
+						oLi.appendChild(oAdd);
+						
+						var iPrice = document.createElement('span');
+						iPrice.innerHTML = aArrs[i].price + '&times;' + aArrs[i].num;
+						oLi.appendChild(iPrice);
+						
+						iSub += aArrs[i].price * aArrs[i].num;
+						
+						var oClose = document.createElement('span');
+						oClose.innerHTML = '&times;';
+						oClose.className = 'btn_close';
+						oLi.appendChild(oClose);
+						
+						oUl.appendChild(oLi);
+					}
+					aDiv[1].appendChild(oUl);
+					aDiv[2].innerHTML = '总价 : ￥' + iSub.toFixed(2);
+					
+					aDiv[3].innerHTML = '<a href="javascript:;">' + '清空购物车' + '</a>';
+					
+				}else {
+					aDiv[1].innerHTML = '购物车还没有东西...';
+					aDiv[3].innerHTML = '';
+				}
+				
+				
+				//删除单个商品
+				aDiv[1].onclick = function(ev) {
+					var ev = ev || window.event;
+					var target = ev.target || ev.srcElement;
+					
+					if(target.className == 'btn_close') {
+						var oPraentLi = target.parentNode;
+						var oNowGoods = oPraentLi.children[0].innerHTML;
+						for(var i=0; i<aArrs.length; i++) {
+							if(aArrs[i].goods == oNowGoods) {
+								aArrs.splice(i,1);
+								iSub = 0;
+								for(var i=0; i<aArrs.length; i++) {
+									iSub += aArrs[i].price * aArrs[i].num;
+								}
+								break;
+							}
+						}
+						aDiv[2].innerHTML = '总价 : ￥' + iSub.toFixed(2);
+						
+						if(aArrs.length == 0) {
+							aDiv[1].innerHTML = '购物车还没有东西...';
+							aDiv[2].innerHTML= '';
+							aDiv[3].innerHTML = '';
+							
+							var data=new Date();
+							data.setTime(data.getTime()-1000);
+							document.cookie="list= ; expires=" + data;
+							//console.log(decodeURIComponent(document.cookie));
+						}else {
+							document.cookie = "list=" + JSON.stringify(aArrs);
+							//console.log(decodeURIComponent(document.cookie));
+						}
+						
+						oPraentLi.parentNode.removeChild(oPraentLi);
+					}
+					
+					//点击减少商品数量
+					if(target.className == 'btn_minus') {
+						var oPraentLi = target.parentNode;
+						
+						for(var i=0; i<aArrs.length; i++) {
+							if(aArrs[i].goods == oPraentLi.children[0].innerHTML) {
+								if(oPraentLi.children[3].innerHTML >1) {
+									oPraentLi.children[3].innerHTML -= 1;
+									oPraentLi.children[5].innerHTML = aArrs[i].price + '&times;' + oPraentLi.children[3].innerHTML;
+									iSub = parseInt(iSub) - aArrs[i].price;
+									aArrs[i].num = oPraentLi.children[3].innerHTML;
+									document.cookie = "list=" + JSON.stringify(aArrs);
+									//console.log(decodeURIComponent(document.cookie));
+								}else {
+									oPraentLi.children[3].innerHTML = 1;
+								}
+							}
+							aDiv[2].innerHTML = '总价 : ￥' + iSub.toFixed(2);
+						}
+						
+					}
+					//点击增加商品数量
+					if(target.className == 'btn_add') {
+						var oPraentLi = target.parentNode;
+						
+						for(var i=0; i<aArrs.length; i++) {
+							if(aArrs[i].goods == oPraentLi.children[0].innerHTML) {
+								oPraentLi.children[3].innerHTML = parseInt(oPraentLi.children[3].innerHTML) + 1;
+								oPraentLi.children[5].innerHTML = aArrs[i].price + '&times;' + oPraentLi.children[3].innerHTML;
+								iSub = parseInt(iSub) + parseInt(aArrs[i].price);
+								aArrs[i].num = oPraentLi.children[3].innerHTML;
+								document.cookie = "list=" + JSON.stringify(aArrs);
+								//console.log(decodeURIComponent(document.cookie));
+							}
+							aDiv[2].innerHTML = '总价 : ￥' + iSub.toFixed(2);
+						}
+					}
+				}
+				
+				//清空购物车
+				aDiv[3].onclick = function(ev) {
+					var ev = ev || window.event;
+					var target = ev.target || ev.srcElement;
+					if(target.tagName.toLowerCase() == 'a') {
+						aDiv[1].innerHTML = '购物车还没有东西...';
+						aDiv[2].innerHTML= '';
+						aDiv[3].innerHTML = '';
+						
+						var data=new Date();
+						data.setTime(data.getTime()-1000);
+						document.cookie="list= ; expires=" + data;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>

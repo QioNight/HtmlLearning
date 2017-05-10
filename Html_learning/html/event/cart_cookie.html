@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<style>
+			li {
+				list-style: none;
+				float: left;
+				margin-right: 20px;
+			}
+			li>img {
+				width: 200px;
+				height: 100px;
+				display: block;
+			}
+			.price:before {
+				content: '￥';
+			}
+			div:nth-of-type(2) {
+				clear: both;
+				text-align: right;
+				padding-right: 100px;
+			}
+		</style>
+		<script>
+			function setCookie(name, value, expires, path, domain, secure) {
+			     var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+			     if (expires instanceof Date) {
+			          cookieText += ";expires="+expires;
+			     }
+			     if (path) {
+			          cookieText += ";path="+path;
+			     }
+			     if (domain) {
+			          cookieText += ";domain="+domain;
+			     }
+			     if (secure) {
+			          cookieText += ";" + secure;
+			     }
+			     document.cookie = cookieText;
+			     return decodeURIComponent(cookieText);
+    		}
+			
+			window.onload = function() {
+				var btn_cart = document.getElementById('cart_look');
+				
+				btn_cart.onclick = function() {
+//					window.location = 'lookcart.html';
+					window.location = 'cart_look.html';
+				}
+				
+				var aAdd = document.getElementsByClassName('add');
+				var aArr = [];
+				
+				for(var i=0; i<aAdd.length; i++) {
+					aAdd[i].onclick = function() {
+						var parent = this.parentElement;
+						var imgs = parent.children[0].src;
+						var goods = parent.children[1].innerHTML;
+						var price = parent.children[2].innerHTML;
+						var oObj = {};
+						oObj.src = imgs;
+						oObj.goods = goods;
+						oObj.price = price;
+						oObj.num = 1;
+						
+						if(aArr.length == 0) {
+							aArr.push(oObj);	
+						}else {
+							for(var i=0; i<aArr.length; i++) {
+								if(aArr[i].goods == goods) {
+									aArr[i].num++;
+									break;
+								}
+							}
+							if(i == aArr.length) {
+								aArr.push(oObj);
+							}	
+						}
+						
+						var data = new Date();
+						data.setDate(data.getDate() + 5);
+//						var expires = data.toUTCString();
+						var jArr = JSON.stringify(aArr);
+						setCookie("list", jArr, data);
+						//console.log(jArr);
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<ul>
+				<li>
+					<img src="img/img0/abc(1).jpg"/>
+					<span>商品1</span><span class="price">20</span>
+					<button class="add">加入购物车</button>
+				</li>
+				<li>
+					<img src="img/img0/abc(2).jpg"/>
+					<span>商品2</span><span class="price">40</span>
+					<button class="add">加入购物车</button>
+				</li>
+				<li>
+					<img src="img/img0/abc(3).jpg"/>
+					<span>商品3</span><span class="price">60</span>
+					<button class="add">加入购物车</button>
+				</li>
+				<li>
+					<img src="img/img0/abc(4).jpg"/>
+					<span>商品4</span><span class="price">80</span>
+					<button class="add">加入购物车</button>
+				</li>
+				<li>
+					<img src="img/img0/abc(5).jpg"/>
+					<span>商品5</span><span class="price">100</span>
+					<button class="add">加入购物车</button>
+				</li>
+			</ul>
+		</div>
+		<div><button id="cart_look">查看购物车</button></div>
+	</body>
+
+</html>

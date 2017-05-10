@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			img {
+				width: 200px;
+				height: 100px;
+			}
+			button {
+				width: 20px;
+				height: 26px;
+			}
+			th {
+				width: 80px;
+			}
+			td {
+				text-align: center;
+			}
+		</style>
+		<script>
+			
+			window.onload = function() {
+				var cookies=decodeURIComponent(document.cookie);
+				var aArrs = cookies.split('=');
+				aArrs = JSON.parse(aArrs[1]);
+				
+				var tab = document.getElementsByTagName('table')[0];
+				
+				for(var i=0; i<aArrs.length; i++) {
+					var tr = document.createElement('tr');
+					var img_td = document.createElement('td');
+					
+					var img = document.createElement('img');
+					img.src = aArrs[i].src;
+					img_td.appendChild(img);
+					tr.appendChild(img_td);
+					
+					var goods_td = document.createElement('td');
+					goods_td.innerHTML = aArrs[i].goods;
+					tr.appendChild(goods_td);
+					
+					var price_td = document.createElement('td');
+					price_td.innerHTML =aArrs[i].price;
+					tr.appendChild(price_td);
+					
+					var num_td = document.createElement('td');
+					num_td.innerHTML = aArrs[i].num;
+					tr.appendChild(num_td);
+					
+					var sub_td = document.createElement('td');
+					sub_td.innerHTML = aArrs[i].price * aArrs[i].num;
+					tr.appendChild(sub_td);
+					
+					var handle_td = document.createElement('td');
+					
+					var handle = document.createElement('a');
+					handle.href = 'javascript:;';
+					handle.innerHTML = '删除';
+					
+					var btn1 = document.createElement('button');
+					btn1.innerHTML = '-';
+					
+					var btn2 = document.createElement('button');
+					btn2.innerHTML = '+';
+					
+					handle_td.appendChild(handle);
+					handle_td.appendChild(btn1);
+					handle_td.appendChild(btn2);
+					tr.appendChild(handle_td);
+					
+					tab.appendChild(tr);
+					
+					handle.onclick = function() {
+						var parents = this.parentNode.parentNode;
+						parents.parentNode.removeChild(parents);
+						console.log(document.cookie);
+						if(tab.rows.length == 2) {
+							var oDiv = tab.parentNode;
+							oDiv.innerHTML = '购物车没有东西';
+						}
+					}
+					
+					btn1.onclick = function() {
+						var parents = this.parentNode.parentNode;
+						if(parents.children[3].innerHTML > 1) {
+							parents.children[3].innerHTML -= 1;
+							parents.children[4].innerHTML = parents.children[3].innerHTML * parents.children[2].innerHTML;
+						}else {
+							parents.children[3].innerHTML = 1;
+							parents.children[4].innerHTML = parents.children[2].innerHTML;
+						}
+					}
+					btn2.onclick = function() {
+						var parents = this.parentNode.parentNode;
+						parents.children[3].innerHTML = parseInt(parents.children[3].innerHTML) + 1;	
+						parents.children[4].innerHTML = parents.children[3].innerHTML * parents.children[2].innerHTML;
+					}
+				}
+				
+				var tr = document.createElement('tr');
+				
+				var total_td = document.createElement('td');
+				total_td.colSpan = 4;
+				total_td.style.textAlign = 'right';
+				
+				var total = document.createElement('p');
+				total.innerHTML = '总计';
+				total_td.appendChild(total);
+				tr.appendChild(total_td);
+				
+				var money_td = document.createElement('td');
+				money_td.colSpan = 2;
+				
+				var money = document.createElement('p');
+				money.innerHTML = 'money';
+				money_td.appendChild(money);
+				tr.appendChild(money_td);
+				
+				tab.appendChild(tr);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<table border="1px">
+				<th width="200px">图片</th>
+				<th>名称</th>
+				<th>单价(元)</th>
+				<th>数量</th>
+				<th>小计</th>
+				<th>操作</th>
+			</table>
+		</div>
+	</body>
+</html>

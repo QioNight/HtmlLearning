@@ -1,0 +1,25 @@
+body,
+div,
+ul,
+li,
+h2{
+	padding: 0px;
+	margin: 0px;
+}
+div{
+	width: 211px;
+}
+li{
+	list-style: none;
+	height: 96px;
+	border: 1px #ccc solid;
+	border-top: none;
+}
+h2{
+	color: #fff;
+	padding: 10px;
+	background-color: #0F7CBF;
+}
+li:hover{
+	border: 1px orangered solid;
+}

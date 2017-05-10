@@ -1,0 +1,65 @@
+body,
+div,
+h2,
+dl,
+dt,
+dd{
+	margin: 0px;
+	padding: 0px;
+}
+div{
+	border: 6px #DCDCDC solid;
+	width: 340px;
+}
+h2{
+	color: #fff;
+	background: #000;
+	padding: 8px 16px;
+}
+dt{
+	font-size: 18px;
+	font-weight: bold;
+	border-top: 2px #DCDCDC dashed;
+	padding: 2px 28px 8px;
+}
+dt:first-child{
+	background-image: url(../img/img6/img6_3/icon_01.gif);
+	background-repeat: no-repeat;
+	border-top: none;
+}
+dt:nth-child(3){
+	background-image: url(../img/img6/img6_3/icon_02.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(5){
+	background-image: url(../img/img6/img6_3/icon_03.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(7){
+	background-image: url(../img/img6/img6_3/icon_04.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(9){
+	background-image: url(../img/img6/img6_3/icon_05.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(11){
+	background-image: url(../img/img6/img6_3/icon_06.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(13){
+	background-image: url(../img/img6/img6_3/icon_07.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(15){
+	background-image: url(../img/img6/img6_3/icon_08.gif);
+	background-repeat: no-repeat;
+}
+dt:nth-child(17){
+	background-image: url(../img/img6/img6_3/icon_09.gif);
+	background-repeat: no-repeat;
+}
+dd{
+	font-size: 15px;
+	line-height: 1.6em;
+}

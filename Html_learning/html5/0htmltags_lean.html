@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+			<!--编码字符集.utf-8可以解决中文乱码-->
+		<title>htmltags_lean</title>
+			<!-- 网页标题标签 -->
+		<link rel="stylesheet" href="css/0htmltags_lean.css">
+			<!-- link.外部style引入. -->
+			<!-- 放在head里内部样式.放在标签里行内样式. -->
+			<!--样式标签.一'直接定位标签.二'#定位id.三'.定位class-->
+	</head>
+	<body>
+		<p id="yesh">正常字体</p>
+			<!--段落标签，块级标签-->
+		<h1 id="h1id">一级标题</h1>
+		<h2 class="h2class">二级标题</h2>
+			<!--有h1到h6,6级标题，块级标签-->
+		<p>
+			<span>故事</span>一般都和原始人类的生产生活有<strong>密切关系</strong>，他们迫切地希望认识自然.
+		</p>
+		于是便以<em>自身为依据</em>，想象天地万物都和人一样，有着生命和意志.<br />
+			<!--可以嵌套在块级标签如p标签.span分组标签.br换行标签.strong加粗.em斜体-->
+		<hr />
+			<!--水平线.空标签不放内容.-->
+		<q>故事通过对过去的事的记忆和讲述</q><br />
+		<hr id="hr1" />
+			<!-- 可通过style样式控制 -->
+		子曰：
+		<blockquote>
+			吾十有五而志于学,三十而立,四十而不惑,五十而知天命,六十而耳顺,七十而从心所欲,不逾矩.
+		</blockquote>
+			<!--q短文本引用，带引号.blockquote长文本引用，自成一段无引号-->
+		<hr />
+		<p>
+			<address>深圳市龙华新区</address>&lt;&copy;深圳市&nbsp;龙华新区&gt;
+		</p>
+			<!-- address地址标签.(&lt;是<).(&gt;是>).(版权符号&copy;).(空格&nbsp).-->
+		示例代码：<br />
+		<code>
+			for(var i=1;i<=10;i++){
+				document.weite(message)；
+			}
+		</code>
+			<!-- 单行代码标签 -->
+		<pre>
+			var message="欢迎"；
+			for(var i=1;i<=10;i++){
+				document.weite(message)；
+			}
+		</pre>
+			<!-- 预定义格式标签 -->
+		<img src="img/HACG_(12).jpg" width="200" height="100" title="人物图像" alt="图像丢失" />
+			<!-- 有相对路径和绝对路径.相对路径以html文件位置为参考.(../为上一级,此图片直接为src="../html5/img/HACG_(12)").绝对路径为加上盘符(如file:/C:/)或协议名. -->
+		<img src="file:/F:/lli/lli.jpg" width="200" height="100" align="middle" id="tu_1" /><br />
+			<!-- align对齐方式.(水平left'right.垂直top'middle'bottom.图像顶部和同行中的最高文本顶部对齐texttop.图像的中部和同行中最大项的中部对齐absmiddle.图像的底部和文本的基线对齐baseline.图像的底部和同行中的最低项对齐absbottom.) -->
+		<img src="file:/F:/lli/lli (100).jpg" width="500" height="300" hspace="30" vspace="40" />
+			<!-- hspace定义水平间距.vspace定义垂直间距.单位都是像素 -->
+		<a href="0htmltags_lean_jump.html" target="_self">当前页面跳转</a>&nbsp;&nbsp;
+		<a href="file:/F:/html5/0htmltags_lean_jump.html#jump_1" target="_blank">新建页面跳转</a>&nbsp;&nbsp;
+		<a href="https://baidu.com" target="new">百度跳转</a>&nbsp;&nbsp;
+			<!-- 页内跳转，瞄点#id.默认_self原网页跳转._blank另开网页跳转. -->
+		<a href="#yesh" target="">当前页面回到顶部</a>&nbsp;&nbsp;
+		<a href="mailto:931058736@qq.com">联系邮箱</a>
+			<!-- mailto可调用邮件发送 -->
+		<br />
+		<ul type="square">
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+			<li>D</li>
+		</ul>
+			<!-- 无序列表type(样式中list-style）:disc(默认）'square'circle'none（一般为无） -->
+		<ol type="I">
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+			<li>D</li>
+		</ol>
+			<!-- 有序列表type：a/A(大小写字母)'i/I(大小写罗马数字)'1(阿拉伯数字，默认) -->
+		<dl>
+			<dt>名词1
+				<dd>解释1_1</dd>
+				<dd>解释1_2</dd>
+			</dt>
+			<dt>名词2
+				<dd>解释2</dd>
+			</dt>
+			<dt>名词3
+				<dd>解释3</dd>
+			</dt>
+		</dl>
+			<!-- 定义列表 -->
+		<hr />
+		<table cellspacing="3" cellpadding="5" align="center" id="ta1">
+			<!-- cellspacing单元格之间的距离.cellpadding单元格内的空白部分. -->
+			<tr align="center">
+				<td colspan="3" bgcolor="red">跨三列</td>
+			</tr>
+			<tr align="center">
+				<td rowspan="2">
+					<table cellspacing="3" cellpadding="5" id="ta2">
+						<tr align="center">
+							<td colspan="3" bgcolor="red">跨三列</td>
+						</tr>
+						<tr align="center">
+							<td rowspan="2">跨两行</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr align="center">
+							<td>A</td>
+							<td>B</td>
+						</tr>
+					</table>
+				</td>
+				<td>a</td>
+				<td>b</td>
+			</tr>
+			<tr align="center">
+				<td>A</td>
+				<td>B</td>
+			</tr>
+		</table>
+			<!-- 表格.colspan跨列.rowspan跨行. bgcolor背景色.align位置（水平对齐[align]:left左对齐; center居中;right右对齐.垂直对齐[valign]:top顶端对齐;middle居中 ;bottom底端对齐; baseline基线对齐）.-->
+		<table border="1">
+			<caption>表格标题</caption>
+				<!-- 表格的正上方 -->
+			<thead border="1">
+				<tr>
+					<th>表头1</th>
+					<th>表头2</th>
+						<!-- th标签是表头.自动居中加粗 -->
+				</tr>
+			</thead>
+			<tbody border="1">
+				<tr>
+					<td>正文1</td>
+					<td>正文2</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>页脚1</td>
+					<td>页脚2</td>
+				</tr>
+			</tfoot>
+				<!-- thead.tbody.tfoot一般用于区分 -->
+		</table>
+		<pre>
+			<a href="form_table.html" style="font-size:30px;"><strong>form表单里嵌套table表格例子</strong></a>
+		</pre>
+		<hr />
+		<div id="div1">
+			这是div容器
+		</div>
+		<div style="position:relative;left:200px;">
+			<iframe src="https://www.baidu.com" frameborder="1" width="700" height="300"></iframe>
+		</div>
+		<a href="3_5.html" style="font-size:30px;" target="_blank">语义化表单</a>(3_*均为表单练习)
+		<iframe src="3_5.html" frameborder="1" ></iframe>
+	</body>
+</html>

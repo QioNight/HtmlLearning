@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#contenter {
+			width: 200px;
+			height: 400px;
+			margin: 0 auto;
+			background: #ccc;
+			position: relative;
+		}
+		#ul_box {
+			height: 216px;
+		}
+		input {
+			border: 1px #fff solid;
+			background: #ccc;
+			margin: 0 20px;
+		}
+		ul {
+			list-style: none;
+			display: none;
+		}
+		li {
+			color: #fff;
+			background: #000;
+			position: relative;
+			display: inline-block;
+			padding: 10px 40px 10px 0;
+			left: 20px;
+			border-left: 1px #fff solid;
+			border-right: 1px #fff solid;
+			border-bottom: 1px #fff dashed;
+			
+		}
+		li:nth-of-type(1) {
+			border-top: 1px #fff solid;
+		}
+		li:nth-of-type(5) {
+			border-bottom: 1px #fff solid;
+		}
+		li:hover {
+			background: #ccc;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			var oInpt = document.getElementsByTagName('input')[0];
+			var oUl = document.getElementsByTagName('ul')[0];
+			var aLi = oUl.getElementsByTagName('li');
+			var oUlBox = document.getElementById('ul_box');
+			oInpt.onmouseover = function() {
+				oUl.style.display = 'block';
+			}
+			for(var i=0; i<aLi.length; i++) {
+				aLi[i].onclick = function() {
+					oInpt.value = this.innerHTML;
+				}
+				aLi[i].onmouseover = function() {
+					oUl.style.display = 'block';
+				}
+			}
+			oUl.onmouseout = function() {
+				oUl.style.display = 'none';
+			}
+		}
+	</script>
+	<body>
+		<div id="contenter">
+			<input type="text" value="请选择游戏名称" readonly/>
+			<div id="ul_box">
+				<ul>
+					<li>英雄联盟</li>
+					<li>魔兽世界</li>
+					<li>大话西游</li>
+					<li>天龙八部</li>
+					<li>九阴真经</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

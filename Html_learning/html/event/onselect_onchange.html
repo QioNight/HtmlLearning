@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var txt = document.getElementById('txt');
+				var div = document.getElementById('box');
+				txt.onselect = function() {
+					div.innerHTML = '文本被选中';
+				}
+				txt.onchange = function() {
+					div.innerHTML = '已改变';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" value="我是默认文字"/>
+		<div id="box"></div>
+	</body>
+</html>

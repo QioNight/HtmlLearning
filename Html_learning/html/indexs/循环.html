@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			//100以内的奇数			
+//			var i = 0;
+//			var j = 0;
+//			while(i<100) {
+//				if(i %2 == 1) {
+//					j++;
+//					document.write(i + '&nbsp;');
+//					if(j == 10) {
+//						document.write('<br>');
+//						j = 0;
+//					}
+//				}
+//				i++;
+//			}
+			
+			//100以内所有偶数的和
+//			var i = 0;
+//			var sum = 0;
+//			while(i<100) {
+//				if(i %2 == 0) {
+//					sum += i;
+//				}
+//				i++;
+//			}
+//			document.write('<br>' + sum + '<br>');
+			
+			
+//			for(var i=0; i<6; i++) {
+//				for(var j=0; j<i; j++){
+//					document.write('◐' + '&nbsp;');
+//				}
+//				document.write('<br>');
+//			}
+			
+//			document.write('<hr>');
+			
+//			for(var i=5; i>0; i--) {
+//				for(var j=5; j>=i; j--){
+//					document.write('◐' + '&nbsp;');	
+//				}
+//				document.write('<br>');
+//			}		
+			
+//			document.write('<hr>');
+					
+			//10*4矩阵
+//			var i = 0;
+//			while(i<4) {
+//				var j = 0;
+//				while(j<10) {
+//					document.write('*');
+//					j++;
+//				}
+//				i++;
+//				document.write('<br>');
+//			}
+			
+			//5的阶乘
+			function fn(n) {
+				if(n <= 1) {
+					return 1;
+				}else {
+					return n*fn(n-1);
+				}	
+			}	
+			console.log( fn(5) );
+			
+			//0-100的和
+			function sum(n) {
+				if(n >= 100) {
+					return 100;
+				}else {
+					return n + sum(n+1);
+				}
+			}
+			console.log( sum(0) );
+			
+			
+			//设有一对新生兔子，从第四个月开始他们每个月月初都生一对兔子，新生的兔子从第四个月月初开始又每个月生一对兔子
+			function rabbit(month) {
+				month = month - 3;
+				if(month <= 0) {
+					return 1;
+				}else {
+					return month + rabbit(month);
+				}	
+			}
+			console.log( rabbit(20) );
+			
+			function Num7(n){
+				if(n <= 0) {
+					return;
+				}else if(n %7 == 0 && n %10 == 7) {
+					console.log(n);
+					return Num7(n-1);
+				}else {
+					return Num7(n-1);
+				}
+			}
+			Num7(100);
+			
+		</script>
+		
+	</body>
+</html>

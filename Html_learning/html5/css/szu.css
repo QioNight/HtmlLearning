@@ -1,0 +1,215 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+#contenter{
+	width: 100%;
+	height: 800px;
+	background-image: url(../img/szu/top_bg2.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-position-y: 100px;
+	text-align: center;
+}
+#header{
+	width: 100%;
+	height: 100px;
+	background-image: url(../img/szu/navbg.png);
+	background-repeat: no-repeat;
+	background-position-x: -400px;
+}
+#bodyer{
+	width: 1008px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+#footer{
+	width: 100%;
+	height: 390px;
+	background-image: url(../img/szu/footer.png);
+}
+#ad{
+	width: 120px;
+	height: 460px;
+	position: fixed;
+	opacity: 0.8;
+	top: 130px;
+	right: 22px;
+}
+#header>div,#header>img{
+	float: right;
+}
+#header div:first-child{
+	margin: 15px 23px 0px 60px;
+	text-align: right;
+	font-size: 13px;
+	color: #fff;
+}
+#nav dl{
+	display: inline-block;
+	vertical-align: top;
+}
+#nav dt{
+	padding: 40px 3px;
+}
+#nav dd{
+	display: none;
+	/*font-size: 13px;*/
+	position: absolute;
+	margin-top: 0px;
+	color: #000;
+}
+#nav a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	height: 101px;
+}
+#nav a:hover dd{
+	display: inline-block;
+	z-index: 1;
+}
+#nav a:hover{
+	background-image: url(../img/szu/ad_bgcolor.png);
+}
+#nav:after{
+	display: block;
+	content: "";
+	clear: both;
+	visibility: hidden;
+	height: 0px;
+}
+#nav{
+	zoom: 1;
+}
+#header>img{
+	margin: 7px 30px;
+}
+.bodyer_left{
+	width: 340px;
+	background: #F5F5F5;
+	line-height: 1.7em;
+	text-align: left;
+	float: left;
+}
+.bodyer_left span{
+	color: #C71585;
+	font: bold 18px "微软雅黑";
+}
+.bleft_title{
+	color: #C71585;
+	font-weight: bold;
+}
+.bodyer_right{
+	width: 660px;
+	overflow: hidden;
+	float: right;
+}
+.b_r{
+	width: 322px;
+	height: 192px;
+	font-size: 12px;
+	line-height: 2em;
+	padding-top: 30px;
+	text-align: left;
+}
+
+.bodyer_right>div{
+	float: right;
+}
+#b_r_1{
+	background-image: url(../img/szu/campus_bg.png);
+	background-repeat: no-repeat;
+	margin-left: 12px;
+}
+#b_r_2{
+	background-image: url(../img/szu/notice_bg.png);
+	background-repeat: no-repeat;
+}
+#b_r_3{
+	background-image: url(../img/szu/research_bg.png);
+	background-repeat: no-repeat;
+	margin-left: 12px;
+}
+#b_r_3>img{
+	margin: 1px 0px 0px 20px;
+}
+#b_r_4{
+	background-image: url(../img/szu/edu_bg.png);
+	background-repeat: no-repeat;
+}
+.b_r span{
+	float: right;
+	line-height: 2.3em;
+	margin: 5px 12px 0px 0px;
+}
+#contenter>hr{
+	height: 10px;
+	background-image: url(../img/szu/hr_menu.png);
+}
+.menu{
+	width: 1008px; 
+	height: 200px; 
+	margin: 0px auto;
+	overflow: hidden;
+}
+.menu dl{
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px 15px;
+	
+}
+.menu dt{
+	font: bold 18px "微软雅黑";
+	color: #9C2F06;
+}
+.menu dd{
+	font-size: 15px;
+	color: #fff;
+}
+.copy{
+	width: 1008px; 
+	height: 160px; 
+	margin: 5px auto;
+}
+.copy div:first-child{
+	text-align: left; 
+	font-size: 12px; 
+	width: 500px; 
+	line-height: 2em;
+	color: #fff;
+	float: left; 
+	margin: 20px;
+}
+.copy div:last-child{
+	float: right;
+	margin: 23px 100px; 
+}
+#ad>div{
+	width: 120px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+#ad>img{
+	position: relative;
+	top: 42px;
+	border: 1px #C71585 dashed;
+}
+#ad>div>img{
+	padding: 1px;
+	border: 1px #C71585 dashed;
+}
+.ad_nav2,#ad p{
+	background-image: url(../img/szu/ad_bgcolor.png);
+	padding: 2px 0px;
+	color: #fff;
+	font-size: 15px;
+}
+.ad_nav1{
+	background: ghostwhite;
+	font-size: 13px;
+	line-height: 2em;
+	width: 102px;
+	margin-left: 9px;
+}

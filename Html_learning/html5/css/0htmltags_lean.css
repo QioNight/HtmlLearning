@@ -1,0 +1,47 @@
+	/*优先级.id>class>标签.
+	行内样式>内部样式>外部样式.
+	!important.最高*/
+#ta1{
+	width:300px;
+	height:300px;
+	border:1px solid green;
+}
+#ta2{
+	width:254px;
+	height:254px;
+	border:3px solid blue;
+}
+th,td{
+	font-size:38px;
+	border:1px solid black;
+}
+span{
+	color:indigo;
+		/*字体颜色*/
+	font-weight:800;
+		/*字体加粗，400为正常，无单位*/
+	/*font-family:"微软雅黑";
+	font-size: 36px;*/
+}
+#h1id{
+	background:blue;
+		/*背景色*/
+}
+.h2class{
+	width:120px;/*长*/
+	height:35px;/*宽*/
+	border:2px solid green;
+		/*边框的宽度以及颜色*/
+}
+#hr1{
+	background:yellow;
+	width:800px;
+	height:15px;
+}
+#div1{
+	width:100px;
+	height:100px;
+	border:2px solid red;
+	position:relative;
+	left:300px;
+}

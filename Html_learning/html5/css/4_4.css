@@ -1,0 +1,15 @@
+#div_1{
+	/*border:1px solid red;*/
+	margin:0px auto;
+	padding:0px;
+	width:887px;
+}
+div>p{
+	color:blue;
+}
+h2,#p_1{
+	color:green;
+}
+h3{
+	color:red;
+}

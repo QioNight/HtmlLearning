@@ -1,0 +1,59 @@
+div,ul,li{
+	padding: 0px;
+	margin: 0px;
+}
+/*div{
+	border: 1px solid green;
+}*/
+#contenter div:first-child{
+	padding: 0px;
+	text-align: center;
+}
+#bodyer{
+	padding: 0px;
+	margin: 0px;
+	display: flex;
+}
+#bodyer div:first-child{
+	width: 186px;
+	background: #ccc;
+}
+#bodyer div:nth-child(2){
+	flex-grow: 1;
+	padding: 10px;
+}
+#bodyer div:last-child{
+	width: 151px;
+	height: 466px;
+}
+li{
+	list-style: none;
+}
+a{
+	color: #000;
+	display: block;
+	text-decoration: none;
+}
+#bodyer>div>ul>li>a{
+	color: #fff;
+	padding: 20px 0px;
+}
+#bodyer>div>ul>li>ul>li>a{
+	padding: 10px 0px;
+	margin: 5px 16px;
+}
+#css_ul>li>ul>li>a{
+	padding: 10px 0px;
+	margin: 5px 16px;
+}
+li a:hover{
+	background: #ddd;
+}
+#html_ul,#css_ul,#js_ul,#practice_ul{
+	display:none;
+}
+input{
+	width: 90px;
+	margin: 40px 0px 10px 30px;
+	padding: 10px;
+}

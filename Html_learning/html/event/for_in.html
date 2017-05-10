@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>三级联动</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var place = {
+					"请选择" : {},
+					"一" : {
+						"请选择" : [],
+						"a" : ["1", "2", "3"],
+						"b" : ["4", "5", "6"],
+						"c" : ["7", "8", "9"]
+					},
+					"二" : {
+						"请选择" : [],
+						"d" : ["1", "2", "3"],
+						"e" : ["4", "5", "6"],
+						"f" : ["7", "8", "9"]
+					},
+					"三" : {
+						"请选择" : [],
+						"g" : ["1", "2", "3"],
+						"h" : ["4", "5", "6"],
+						"j" : ["7", "8", "9"]
+					}
+				}
+				var province = document.getElementById('province');
+				var city = document.getElementById('city');
+				var are = document.getElementById('area');
+				
+				for(var i in place) {
+					//console.log(i);
+					//console.log(place[i]);
+					var opt = document.createElement('option');
+					opt.value = i;
+					opt.innerHTML = i;
+					province.appendChild(opt);
+				}
+				
+				province.onchange = function() {
+					var citys = place[province.options[province.selectedIndex].value];
+					city.innerHTML = null;
+					are.innerHTML = null;
+					for(var i in citys) {
+						var opt = document.createElement('option');
+						opt.value = i;
+						opt.innerHTML = i;
+						city.appendChild(opt);
+					}
+					city.onchange = function() {
+						console.log(city.options[city.selectedIndex].value)
+						var areas = citys[city.options[city.selectedIndex].value];
+						console.log(areas);
+						are.innerHTML = null;
+						for(var i=0; i<areas.length; i++) {
+							var opt = document.createElement('option');
+							opt.value = areas[i];
+							opt.innerHTML = areas[i];
+							are.appendChild(opt);
+						}
+					}
+				}	
+			}
+		</script>
+	</head>
+	<body>
+		<select name="province" id="province"></select>
+		<select name="city" id="city"></select>
+		<select name="area" id="area"></select>
+	</body>
+</html>

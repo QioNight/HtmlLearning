@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>问卷[语义化表单]</title>
+		<style>
+			form{
+				width:430px;
+				/*position:relative;
+				left:300px;
+				top:80px;*/
+			}
+			legend{
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="#">
+			<fieldset>
+				<legend>用户信息表</legend>
+				<table  cellspacing="15">
+					<tr>
+						<td><label for="name">姓名：</label></td>
+				   		<td><input type="text" id="name"></td>	
+					</tr>
+					<tr>
+						<td><label for="age">年龄：</label></td>
+						<td><input type="text" id="age"></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td>
+							<label for="man">男</label><input type="radio" name="sex" id="man">
+							<label for="woman">女</label><input type="radio" name="sex" id="woman">
+						</td>
+					</tr>
+					<tr>
+						<td><label for="tel">手机：</label></td>
+						<td><input type="text" id="tel"></td>
+					</tr>
+					<tr>
+						<td><label for="mail">邮箱：</label></td>
+						<td><input type="text" id="mail"></td>
+					</tr>
+					<tr>
+						<td>爱好：</td>
+						<td>			  	
+				  			<input type="checkbox" id="interst_1"><label for="interst_1" >滑雪</label>
+							<input type="checkbox" id="interst_2"><label for="interst_2" >爬山</label>
+							<input type="checkbox" id="interst_3"><label for="interst_3" >游泳</label>
+							<input type="checkbox" id="interst_4"><label for="interst_4" >上网</label> 
+							<input type="checkbox" id="interst_5"><label for="interst_5" >踢球</label>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</body>
+</html>

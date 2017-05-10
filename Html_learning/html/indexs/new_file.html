@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box {
+				width: 200px;
+				height: 200px;
+				border: 2px #000 solid;
+			}
+		</style>
+		<script type="text/javascript">
+//			var a = 10000;
+//			var up = 0;
+//			for(var i=0; i<50; i++) {
+//				up += 10000*(0.05);
+//				a += up;
+//			}
+//			console.log(a);
+//			
+//			var day = parseInt(89/24);
+//			var hour = 89-day*24;
+//			console.log(day + "天" + hour + "小时")
+//			
+//			var b = 80;
+//			var c = parseFloat(5/9.0*(b-32), 2);
+//			console.log("华氏度： " + b);
+//			console.log("摄氏度： " + c);
+			
+			window.onload = function() {
+				var oTxt = document.getElementById('txt');
+				var oBtn = document.getElementById('btn');
+				var oBox = document.getElementById('box');
+				
+				oBtn.onclick = function() {
+					var str = oTxt.value;
+					
+			  		if(! str) {
+			  			alert('请输入...');
+			  		}else if( /[^A-Za-z0-9]/.test(str) || /\s/.test(str)) {
+			  			alert('请输入字母或数字');
+			  		}else {
+			  			var re = /(\d)\1/g;
+			  			var oStr = str.replace(re, function($0, $1) {
+			  				alert($1);
+			  				return $0;
+			  			});
+			  			console.log(typeof oStr);
+			  			oBox.innerHTML = oStr;
+			  		}
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<form action="#">
+			<input type="text" value="" id="txt"/>
+			<input type="button" id="btn" value="提交"/>
+		</form>
+		<div id="box"></div>
+	</body>
+
+</html>

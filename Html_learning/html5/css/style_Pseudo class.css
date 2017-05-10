@@ -1,0 +1,23 @@
+div{
+	position: absolute;
+	left:200px;	
+}
+span,
+#ul_2 li:first-child,
+.ul_1 li:first-child,
+li:only-child{
+	font-weight: bold;
+}
+#ul_2 li:nth-child(3),
+#ul_2 li:last-child{
+	color: #00f;
+}
+.ul_1 li:first-child{
+	color: #f00;
+}
+.ul_1 li:last-child{
+	text-decoration: line-through;
+}
+li:only-child{
+	color: #008000;
+}

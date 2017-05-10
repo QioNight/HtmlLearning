@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			#ban {
+				width: 400px;
+				height: 400px;
+				background: #ccc;
+				position: relative;
+			}
+			#large {
+				width: 200px;
+				height: 200px;
+				background: #ff0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0.3;
+				filter: alpha(opacity=30);
+				display: none;
+			}
+			#big {
+				width: 600px;
+				height: 600px;
+				background: #333;
+				position: absolute;
+				top: 0;
+				left: 450px;
+				overflow: hidden;
+				display: none;
+			}
+			#nav {
+				width: 400px;
+				height: 100px;
+				background: #ccc;
+				margin-top: 20px;
+			}
+			#ban>img {
+				width: 400px;
+				height: 400px;
+			}
+			#big>img {
+				width: 1800px;
+				height: 1800px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#nav>img {
+				width: 100px;
+				height: 100px;
+				float: left;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var oNav = document.getElementById('nav');
+				var aImg = oNav.getElementsByTagName('img');
+				var oBan = document.getElementById('ban');
+				var abImg = oBan.getElementsByTagName('img');
+				var oLarge = document.getElementById('large');
+				var oBig = document.getElementById('big');
+				
+				for(var i=0; i<aImg.length; i++) {
+					aImg[i].onmouseover = function() {
+						abImg[0].src = this.src;
+						abImg[1].src = this.src;
+					}
+				}
+				
+				oBan.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					var pageX = ev.pageX || ev.clientX || ev.screenX || ev.offsetX;
+					var pageY = ev.pageY || ev.clientY || ev.screenY || ev.offsetY;
+					var w = oLarge.offsetLeft/(oBan.offsetWidth - oLarge.offsetWidth);
+					var h = oLarge.offsetTop/(oBan.offsetHeight - oLarge.offsetHeight);
+					
+					oLarge.style.left = pageX - (oLarge.offsetWidth/2) + 'px';
+					oLarge.style.top = pageY - (oLarge.offsetHeight/2) + 'px';
+					
+					if(oLarge.offsetLeft + oLarge.offsetWidth >= oBan.offsetWidth) {
+						oLarge.style.left = oBan.offsetWidth - oLarge.offsetWidth + 'px';
+					}else if(oLarge.offsetLeft <= 0) {
+						oLarge.style.left = '0px';
+					}
+					if(oLarge.offsetTop + oLarge.offsetHeight >= oBan.offsetHeight) {
+						oLarge.style.top = oBan.offsetHeight - oLarge.offsetHeight + 'px';
+					}else if(oLarge.offsetTop <= 0) {
+						oLarge.style.top = '0px';
+					}
+					
+					abImg[1].style.left = -w*(abImg[1].offsetWidth - oBig.offsetWidth) + 'px';
+					abImg[1].style.top = -h*(abImg[1].offsetHeight - oBig.offsetHeight) + 'px';
+				}
+				
+				oBan.onmouseover = function() {
+					oLarge.style.display = 'block';
+					oBig.style.display = 'block';
+				}
+				
+				oBan.onmouseout = function() {
+					oLarge.style.display = '';
+					oBig.style.display = '';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="ban">
+			<img src="" alt="" />
+			<div id="large"></div>
+			<div id="big"><img src="" /></div>
+		</div>
+		<div id="nav">
+			<img src="img/img0/abc (1).jpg" />
+			<img src="img/img0/abc (2).jpg" />
+			<img src="img/img0/abc (4).jpg" />
+			<img src="img/img0/abc (5).jpg" />
+		</div>
+	</body>
+</html>

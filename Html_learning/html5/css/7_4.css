@@ -1,0 +1,46 @@
+body,
+div,
+ul,
+li{
+	padding: 0px;
+	margin: 0px;
+}
+img{
+	vertical-align: middle;
+}
+div:first-child{
+	float: left;
+}
+div:nth-child(2){
+	position: absolute;
+	right: 0px;
+	top:27px;
+}
+div:last-child{
+	clear: both;
+	background: #0F7CBF; 
+}
+div:nth-child(2)>img,span{
+	padding-right: 30px;
+}
+ul{
+	font-size: 0px;
+}
+li{
+	list-style: none;
+	font-size: 16px;
+	display: inline-block;
+	border-left: 1px #000 solid;
+}
+li:first-child{
+	border-left: none;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 10px 18px;
+}
+a:hover{
+	background: #B5C9E8;
+}

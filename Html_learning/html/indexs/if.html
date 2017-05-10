@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script>
+			var a = 1996;
+			if((a % 4 == 0 && a % 100 != 0) || a % 400 == 0) {
+				console.log('闰年');
+			} else {
+				console.log('平年');
+			}
+
+			var b = 20;
+			var c = 10;
+			if(b > c) {
+				console.log('最大数：' + 'b,' + b);
+			} else if(b < c) {
+				console.log('最大数：' + 'c,' + c);
+			} else {
+				console.log('两个数一样大');
+			}
+
+			var y = 0;
+			var x = 10;
+			if(x < 1) {
+				console.log('y = ' + x);
+			} else if(x >= 1 && x < 10) {
+				console.log('y = ' + (2 * x + 1));
+			} else {
+				console.log('y = ' + (5 * x - 17));
+			}
+
+			var a = [90, 80, 66, 40];
+			var aTemp = [];
+			for(var i = 0; i < a.length; i++) {
+				if(a[i] > 85) {
+					aTemp[i] = '成绩优秀';
+				} else if(a[i] <= 85 && a[i] > 75) {
+					aTemp[i] = '成绩良好';
+				} else if(a[i] < 75 && a[i] >= 60) {
+					aTemp[i] = '成绩及格';
+				} else {
+					aTemp[i] = '不及格';
+				}
+			}
+			console.log(a);
+			console.log(aTemp);
+
+			var height = [70, 60, 80];
+			var weight = [1.75, 1.8, 1.6];
+			var aHealth = [];
+			for(var i = 0; i < height.length; i++) {
+				var bmi = 0;
+				bmi = (height[i] / (weight[i] * weight[i]));
+				if(bmi < 18.5) {
+					aHealth[i] = '过轻';
+				} else if(bmi <= 24.99 && bmi >= 18.5) {
+					aHealth[i] = '正常';
+				} else if(bmi < 28 && bmi >= 25) {
+					aHealth[i] = '过重';
+				} else if(bmi <= 32 && bmi > 28) {
+					aHealth[i] = '肥胖';
+				} else {
+					aHealth[i] = '非常肥胖';
+				}
+			}
+			console.log(height);
+			console.log(weight);
+			console.log(aHealth);
+
+			
+		</script>
+
+	</body>
+
+</html>

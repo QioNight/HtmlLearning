@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var form = document.getElementsByTagName('form')[0];
+				var tester = form.getElementsByTagName('input');
+				
+				(function() {
+					tester[0].onchange = function() {
+						if(tester[0].value.length < 6) {
+							alert('用户名至少6位');
+						}else if(!/^[A-z0-9]+$/g.test(tester[0].value)) {
+							alert('用户名只能为数字和字母');
+						}
+					}
+						tester[1].onchange = function() {
+						if(tester[1].value.length < 8) {
+							alert('密码至少8位');
+						}
+					}
+				})()
+				
+				form.onsubmit = function() {
+					alert('用户名:' + tester[0].value + '\n' + '密码:' + tester[1].value)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action="#">
+			<input type="text" placeholder="用户名" />
+			<input type="password" placeholder="密码" />
+			<input type="submit" value="登录" />
+		</form>
+	</body>
+</html>

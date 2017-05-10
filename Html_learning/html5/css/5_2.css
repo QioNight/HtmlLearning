@@ -1,0 +1,21 @@
+#contenter{
+	/*border: 2px solid #FF0000;*/
+	width: 67%;
+	margin: 0px auto;
+	padding: 0px;
+	color: #9c2f06;
+}
+.align_center>img{
+	vertical-align: middle;
+}
+.align_center{
+	vertical-align: middle;
+}
+h4{
+	line-height: 40px;
+	font-weight: bold;
+}
+li{
+	font-size: 12px;
+	line-height: 20px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			var pre = 2000;
+			for(var i=1; i<=20; i++) {
+				pre += pre*0.05;	
+			}
+			console.log( parseInt(pre) );
+			
+			var iNum = 0;
+			for(var i=15; i<50; i+=5){
+				iNum++;
+			}
+			console.log(iNum);
+			
+			for(var i=100; i<200; i++) {
+				if(i %3 == 0 || i %7 == 0) {
+					console.log(i);
+				}
+			}
+			
+			var a = 1;
+			for(var i=1; i<=10; i++) {
+				a *= i;
+			}
+			console.log(a);
+			
+			var sum = 0;
+			for(var i=1; i<100; i++) {
+				if(i %2 == 1) {
+					sum += i;
+				}
+			}
+			console.log(sum);
+			
+			for(var i=1; i<=9; i++) {
+				for(var j=9; j>=i; j--) {
+					document.write('*');	
+				}
+				document.write('<br>');
+			}
+			
+			var a = 11;
+			var temp = 0;
+			for(var i=2; i<a; i++) {
+				if(a %i ==0) {
+					console.log('合数');
+					break;
+				}else{
+					temp++;
+				}
+				if(temp == a-2) {
+					console.log('素数');
+					break;
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

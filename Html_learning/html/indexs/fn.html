@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+//			(function(n) {
+//				var pow = 1;
+//				for(var i=1; i<=n; i++) {
+//					pow *= i;
+//				}
+//				console.log(pow);
+//			})(5)
+			
+//			(function(a, b) {
+//				if(a %b == 0) {
+//					console.log('最小公倍数是：' + a);
+//				}else if(b %a == 0) {
+//					console.log('最小公倍数是：' + b);
+//				}else {
+//					console.log('最小公倍数是：' + a*b);
+//				}
+//			})(5, 10)
+
+//			function sum() {
+//				var sum = 0;
+//				for(var i=0; i<arguments.length; i++) {
+//					sum += arguments[i];
+//				}
+//				console.log(sum);
+//			}
+//			sum(1, 20, 6);
+			
+			(function(a) {
+				var temp = 0;
+				for(var i=2; i<a; i++) {
+					if(a %i ==0) {
+						console.log('合数');
+						break;
+					}else{
+						temp++;
+					}
+					if(temp == a-2) {
+						console.log('素数');
+						break;
+					}
+				}
+			})(11)
+			
+		</script>
+		
+	</body>
+</html>

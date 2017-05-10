@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#img {
+				position: absolute;
+			}
+			.box {
+				border: 1px #000 solid;
+			}
+		</style>
+		
+		<script>
+			window.onload = function() {
+				var oImg = document.getElementById('img');
+				var disX = 0;
+				var disY = 0;
+				var speedX = 0;
+				var speedY = 0;
+					
+//				function startMove() {
+//					setInterval(function() {
+//						var T = oImg.offsetTop + speedY;
+//						var L = oImg.offsetLeft + speedX;
+//						
+//						speedY += 3;
+//						
+//						if(T > document.documentElement.clientHeight - oImg.offsetHeight ) {
+//							T = document.documentElement.clientHeight - oImg.offsetHeight;
+//							speedY *= -1;
+//							speedY *= 0.75;
+//							
+//						}else if(T < 0) {
+//							T = 0;
+//							speedY *= -1;
+//						}
+//						
+//						if(L > document.documentElement.clientWidth - oImg.offsetWidth ) {
+//							L = document.documentElement.clientWidth - oImg.offsetWidth;
+//							speedX *= -1;
+//						}else if(L < 0) {
+//							L = 0;
+//							speedX *= -1;
+//						}
+//						
+//						oImg.style.top = T + 'px';
+//						oImg.style.left = L + 'px';
+//					}, 100);
+//				}
+//				
+//				startMove();
+				
+				oImg.onmousedown = function(ev) {
+					//event -->ie , ev -->ff ,写window.event,则是因为在ff下，event不存在而报错，而window.event是在window下，返回undefined
+					var ev = window.event || ev;
+					
+					disX = ev.clientX - oImg.offsetLeft;
+					disY = ev.clientY - oImg.offsetTop;
+					
+				    // IE8
+					if(oImg.setCapture) {
+						oImg.setCapture();
+					}
+					
+					document.onmousemove = function(ev) {
+						var ev = ev || window.event;
+						oImg.style.left = ev.clientX - disX + 'px';
+						oImg.style.top = ev.clientY - disY + 'px';
+						
+//						var oBox = document.creatElement('div');
+//						oBox.className = 'box';
+//						oBox.offsetLeft = ev.clientX + 'px';
+//						oBox.offsetTop = ev.clientY + 'px';
+					}
+					
+					document.onmouseup = function() {
+						document.onmousemove = null;
+						document.onmouseup = null;
+						if(oImg.releaseCapture) {
+							oImg.releaseCapture();
+						}
+					}
+					
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/--1.png" id="img" alt="" />
+	</body>
+</html>
