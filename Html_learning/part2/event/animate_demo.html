@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="../../jquery-3.2.1.min.js"></script>
+    <script src="../../jQueryEasing.min.js"></script>
     <script>
         $(function() {
             $('.box2').css(
-                    {
+                {
                     'top' : $('.box1').height()/2, 
                     'left' : $('.box1').width()/2
-                    }
-                ).animate(
-                        {
-                        'width' : 300, 'height' : 300, 
-                        'top' : ($('.box1').height() - 300)/2, 
-                        'left' : ($('.box1').width() - 300)/2, 
-                        opacity : 0.2, 
-                        }
-                    ,1000);
-
+                }).animate(
+                {
+                    'width' : 300, 'height' : 300, 
+                    'top' : ($('.box1').height() - 300)/2, 
+                    'left' : ($('.box1').width() - 300)/2, 
+                    opacity : 0.2 
+                }, 1000, 'easeInOutSine', function() {
+                    $('.box2').css('animation', 'toJump 1s infinite');
+                });
         })
     </script>
     <style>
@@ -39,14 +39,19 @@
             background: #f00;
             display: inline-block;
             position: absolute;
-            line-height: 500px;
+        }
+        /*@keyframes 和animation连用 帧动画*/
+        @keyframes toJump {
+            0% { transform: none; }  /*transform转换 scale()更改元素的大小*/
+            25% { transform: scale(1.3); }
+            75% { transform: scale(1.1); }
+            100% { transform: none; }
         }
     </style>
 </head>
 <body>
     <div class="box1">
         <div class="box2">
-            <buuton id="btn">点击</buuton>
         </div>
     </div>
 </body>
