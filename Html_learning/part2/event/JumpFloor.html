@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        h3 {
+            cursor: pointer;
+        }
+        .floor {
+            width: 500px;
+            height: 500px;
+            margin-top: 10px;
+            border: 1px #000 solid;
+        }
+        nav {
+            width: 80px;
+            font-size: 20px;
+            line-height: 2em;
+            position: fixed;
+            right: 0;
+            top: 100px;
+            border: 1px #000 solid;
+            display: none;
+        }
+        nav p {
+            cursor: pointer;
+        }
+        .on {
+            background: red;
+        }
+    </style>
+    <script src="../../jquery-3.2.1.min.js"></script>
+    <script src="../../jQueryEasing.min.js"></script>
+    <script>
+        $(function() {
+            //生成楼层
+            $('div').on('click', 'h3', function() {
+                $(this).after('<div class="floor"></div>');
+                $('nav').empty()
+                var i = 0;
+                $('.floor').each(function(i, elem) {
+                    $(this).attr('index', i).html(i + 1);
+                    $('nav').append('<p inde="' + i + '">第' + (i + 1) + '楼</p>');
+                });
+                $('nav').append('<p>返回</p>');
+            });
+
+            //点击对应楼层跳转
+            $('nav').on('click', 'p', function() {
+                if($(this).attr('inde')  == $('nav p').last().attr('inde')) {
+                    $('html,body').animate({'scrollTop' : 0}, 600, 'easeInOutQuint');
+                }else {
+                    $('html,body').animate({'scrollTop' : $('.floor').height()*$(this).attr('inde')}, 600, 'easeInOutQuint');
+                }    
+            });
+            
+            //判断在第几楼并显示
+            $(window).scroll(function() {
+                var scrollTop =  $(this).scrollTop();
+                var h = $(window).height();
+                //右边侧边栏的显示隐藏
+                if(scrollTop != 0) {
+                    $('nav').show();
+                }else {
+                    $('nav').hide();
+                }
+                $('.floor').each(function() {
+                    if(($(this).offset().top - $(this).height()/2) <= scrollTop  && ($(this).offset().top + $(this).height()/2) >= scrollTop) {
+                        $(this).addClass('on');
+                        $('nav p').eq( $(this).attr('index') ).addClass('on');
+                    }else {
+                        $(this).removeClass('on');
+                        $('nav p').eq( $(this).attr('index') ).removeClass('on');
+                    }
+                });
+                if($(document.body).height() - (scrollTop + h) <= 20) {
+                    $('.floor').removeClass('on');
+                    $('.floor').last().addClass('on');  
+                }  
+            });  
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h3>楼层示例效果</h3>
+    </div>
+    <nav></nav>
+</body>
+</html>

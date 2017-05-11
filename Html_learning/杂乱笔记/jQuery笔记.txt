@@ -190,9 +190,16 @@ $(function() {})
 	remove()  //删除匹配元素本身
 	detach()  //（可保留事件 恢复）
 
+	wrap()  //包裹，给匹配元素添加父元素
+	unwrap()  //去除父元素
+	
+	wrapInner()
+	
+	end()  //更改 返回上一个对象
+	
+	each(function(i, elem) {})  //遍历 i是索引 elem是dom对象，用$(this) 或者 $(elem)
 
-
-
+	$.each([el,el] | {i:el,i:el}, function(i, el) {})  //循环数组或对象 js的 for( in )遍历
 
 
 
