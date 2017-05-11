@@ -1,0 +1,201 @@
+﻿		jQuery
+$(function() {})
+
+
+		选择器
+	$("div").htlm("hello");  //标签选择器，修改innerHTML值，html()不传参就是获取
+	$("#id").css({"color":"red","font-size":"20px"});  //id选择器，设置css样式
+	$("#id").css("color":"red")  //设置样式，只能设置一个
+	$("#id").css("color") //获取样式
+	$(".className")//类选择器
+	$("div, #id, .className")//复合选择器
+	$("#id li")//后代选择器 可以$("#id").find("li")
+	$("#id>li")//父子选择器，直接的子元素
+	$("#id+div")//相邻选择器，下一个同级元素
+	$("#id~div")//兄弟选择器
+	
+	$("li").first()//第一个,jQ对象
+	$("li:first")
+	$("li").eq(2)//通过索引
+	$("li:eq(2)")
+	$("li").last()//最后一个
+	$("li:last")
+	
+	$("li").first()[0].innerHTML //jQ对象转换成dom对象
+	$("li").first().get(0) //或者
+
+	$(document.getElementById('id')).css("color")//dom对象转换成jQ对象
+
+
+	$("li:odd") //偶数项
+	$("li:even") //奇数项
+
+	$("li:gt(num)") //大于索引num的元素
+	$("li:lt(num)") //小于索引num的元素
+
+	:contains()  //匹配包含给定文本的元素
+
+	:empty  //匹配不子元素或者文本的空元素
+	:parent  //匹配包含子元素或者文本的元素
+
+	:has()  //匹配 含有某选择器所匹配的元素 的元素
+	:not()  //匹配 不 含有某选择器所匹配的元素 的元素
+
+	:header  //h1~h6 匹配标题元素
+
+	:hidden  //匹配所有不可见的元素 或者 type=hidden的元素
+	:visible  //匹配所有可见的元素
+
+	[attribute]  //匹配包含给定属性的元素
+		[attribute = value]  //等于值
+		[attribute != value]  //不等于值
+		[attribute ^= value]  //某个值开始
+		[attribute $= value]  //某个值结束
+		[attribute *= value]  //含有某个值
+		[attrSel1][attrSel2][attrSelN]  //复合的属性选择器
+
+
+	:nth-child()  //匹配所有父元素的对应索引的子元素，索引从 1 开始
+	$(ul li:first-child)  //匹配所有父元素的第一个子元素
+	:last-child  //匹配所有父元素的最后一个子元素
+	:only-child  //仅仅只有一个子元素
+
+	$(":selected").val()  //下拉列表被选中项的值
+
+
+
+
+
+	attr("", "val")  //设置属性，不传第二个参数就是获取
+
+	hasClass("className")  //查找类,返回true\false
+	removeClass()  //删除类
+	addClass()  //添加类
+
+
+
+	is()  //是否是.. 返回true\false
+
+	slice(start,[end])  //选取一个匹配的子集
+	filter(exp[表达式] | elem | fn)  //筛选出与指定表达式匹配的集合
+
+
+	find()  //查找后代元素
+
+	nextAll() //当前元素的上面所有同级元素
+	prev()  //上一个同级元素
+	prevUntil()  //区间
+
+	next()  //下一个同级元素
+	nextAll() //当前元素的下面所有同级元素
+	nextUntil()  //区间
+
+	siblings()  //上下所有同级元素
+
+
+	$(this)  //当前元素
+	children()  //当前元素的所有子元素
+	parent()  //当前元素的父元素
+
+
+	attr()  //获取 | 设置匹配元素的属性
+	prop()  //返回 true | false
+
+
+
+	innerHeight()  //clientHeight = content + paddimg 有滚动条，还要去除滚动条的宽度
+	innerWidth()
+
+	outerHeight()  //offsetHeight = content + paddimg + border
+	outerWidth()
+
+	outerHeight(true)  //content + paddimg + border + margin 原生JS没有对应的
+	outerWidth(true)
+
+
+
+	scrollTop()  //被卷上去的部分
+	scrollLeft()  //被卷到左边的部分
+
+
+	position()  //返回对象,有两个属性，与最近有定位的父级元素的位置,只读
+		position().top == offsetTop;
+		position().left == offsetLeft;
+
+	offset()  //获取匹配元素在当前可视区的相对偏移，返回对象，两个属性，可写
+
+
+
+	resize()  //窗口的尺寸发生变化时触发
+
+
+	hover([over,] out);  //鼠标移入移出，传入两个函数
+
+	on("事件类型", {数据对象}, fn(ev) {
+		ev.data
+	})  //事件监听  可以给一个元素绑定多个相同或不同事件 并且适用于动态创建的元素  1.7起，代替了bind(),live(),delegate()
+		$("父元素").on("事件", "需要的子元素", fn);  //事件委托
+
+	off();  //移除事件
+
+
+	show()  //显示 display: block
+	hide()  //隐藏 display: none
+	toggle()  //切换 隐藏 - 显示
+
+
+	slideDown()  //滑动 向下
+	slideUp()  //向上
+	slideToggle()  //切换
+
+
+	fadeIn  //淡入淡出
+	fadeOut
+	fadeToggle
+	fadeTo  //可指定透明度
+
+
+	animate("样式", 时间, "easing动画曲线", fn)  //动画
+		//不同元素的队列动画，下一个元素写在fn回调函数里
+
+
+	stop()  //停止当前，其他继续
+	delay()  //延时
+
+	queue()  //插队
+	dequeue()  //执行完插队代码之后，继续往下执行
+	clearQueue()  //执行完当前动画，清空队列中尚未执行queue()及以下的所有队列
+
+	append('div')  //元素内部的后面插入div
+	appendTo('div')  //把元素 插入div 内部的后面
+	
+	prepend()  //内部前面
+	prependTo()
+	
+	after() //元素外部的后面
+	insertAfter()  
+	
+	before()  //外部前面
+	insertBefore()  
+
+	replaceWith()  //将匹配的元素替换成指定的html || dom元素
+	replaceAll()  //用匹配的元素替换掉selector匹配到的元素  
+
+	
+	clone()  //克隆，返回的是克隆完的副本，更改css不会对原来的起作用
+	clone(true)  //事件一起克隆
+	
+	
+	empty()  //删除匹配元素的所有子元素
+	remove()  //删除匹配元素本身
+	detach()  //（可保留事件 恢复）
+
+
+
+
+
+
+
+
+
+

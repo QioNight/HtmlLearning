@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+            $('p').eq(1).replaceWith( '<span>指定替换</span>' );
+            $('p').eq(2).replaceWith( $('p').first() );
+            //$('strong').replaceAll( $('p').last() );
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <p>11</p>
+        <p>22</p>
+        <p>33</p>
+        <p>44</p>
+    </div>
+    <strong>移动替换</strong>
+</body>
+</html>
