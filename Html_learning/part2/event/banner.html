@@ -125,14 +125,12 @@
 					}
 				);
 
-				//点击小圆点移动
-				$('#numUl li').each(function() {
-					$(this).mousedown(function() {
+				//经过小圆点移动，stop()阻止当前动画并开始下一个
+				$('#numUl li').hover(function() {
 						$(this).addClass('on').siblings().removeClass('on');
 						iNow = $(this).index();
-						$('#imgUl').animate({"left" : - iNow*600}, 400, 'swing');
+						$('#imgUl').stop().animate({"left" : - iNow*600}, 400, 'swing');
 					});
-				});
 				//上一张
 				$('span').eq(0).click(function() {
 					iNow--;
@@ -140,18 +138,17 @@
 						iNow = $('#imgUl li').length - 2;
 						$('#imgUl').css("left", -($('#imgUl li').length - 1)*600);
 					}
-					$('#imgUl').animate({"left" : - iNow*600}, 500, 'swing');
+					$('#imgUl').stop().animate({"left" : - iNow*600}, 500, 'swing');
 					$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 				});
 				//下一张
 				$('span').eq(1).click(function() {
 					iNow++;
-					
 					if(iNow == $('#imgUl li').length) {
 						iNow = 1;
 						$('#imgUl').css("left", 0);
 					}
-					$('#imgUl').animate({"left" : - iNow*600}, 500, 'swing');
+					$('#imgUl').stop().animate({"left" : - iNow*600}, 500, 'swing');
 					if(iNow == $('#imgUl li').length - 1) {
 						$('#numUl li').eq(0).addClass('on').siblings().removeClass('on');
 					}else {
