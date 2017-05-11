@@ -89,46 +89,39 @@
 				// 	});
 				// })(0);
 				
-				//分别添加第一张到最后，最后一张到前面,并设置图片ul的width
+				//添加第一张到最后,并设置图片ul的width
 				var aFirstImg = $('#imgUl li').first().clone();
-				var aLastImg = $('#imgUl li').last().clone();
-				$('#imgUl').append(aFirstImg);
-				$('#imgUl').prepend(aLastImg).width( ($('#imgUl li').length) * ($('img').width()) ).css("left", -600);
+				$('#imgUl').append(aFirstImg).width( ($('#imgUl li').length) * ($('img').width()) );
 
 				var iNow = 0;
 
 				//定时 自动轮播
 				function toRun() {
 					iNow++;
-					if(iNow ==$('#imgUl li').length - 1) {
-						$('#imgUl').css("left", -600);
+					if(iNow ==$('#imgUl li').length) {
 						iNow = 1;
+						$('#imgUl').css("left", 0);
 					}
-					console.log(iNow);
-					$('#imgUl').animate({"left" :  - (iNow + 1)*600}, 1000, 'swing');
-					if(iNow == $('#imgUl li').length - 2) {
+					$('#imgUl').animate({"left" :  - iNow*600}, 1600, 'swing');
+					if(iNow == $('#imgUl li').length - 1) {
 						$('#numUl li').eq(0).addClass('on').siblings().removeClass('on');
 					}else {
 						$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 					}
 				}
-				var runTime = setInterval(toRun, 1600);
+				var runTime = setInterval(toRun, 2000);
 
 				//鼠标移入移除
 				$('div').hover(
 					function() {
 						clearInterval(runTime);
-						$('#numUl').css("display", "block");
-						$('span').each(function() {
-							$(this).css("display", "block");
-						});
+						$('#numUl').show();
+						$('span').show();
 					},
 					function() {
-						runTime = setInterval(toRun, 3000);
-						$('#numUl').css("display", "none");
-						$('span').each(function() {
-							$(this).css("display", "none");
-						});
+						runTime = setInterval(toRun, 2000);
+						$('#numUl').hide();
+						$('span').hide();
 					}
 				);
 
@@ -137,29 +130,29 @@
 					$(this).mousedown(function() {
 						$(this).addClass('on').siblings().removeClass('on');
 						iNow = $(this).index();
-						$('#imgUl').animate({"left" : - (iNow + 1)*600}, 400, 'swing');
+						$('#imgUl').animate({"left" : - iNow*600}, 400, 'swing');
 					});
 				});
 				//上一张
 				$('span').eq(0).click(function() {
 					iNow--;
-					if(iNow == -2) {
-						iNow = $('#imgUl li').length - 4;
-						$('#imgUl').css("left", -($('#imgUl li').length - 2)*600);
+					if(iNow == -1) {
+						iNow = $('#imgUl li').length - 2;
+						$('#imgUl').css("left", -($('#imgUl li').length - 1)*600);
 					}
-					$('#imgUl').animate({"left" : - (iNow + 1)*600}, 500, 'swing');
+					$('#imgUl').animate({"left" : - iNow*600}, 500, 'swing');
 					$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 				});
 				//下一张
 				$('span').eq(1).click(function() {
 					iNow++;
 					
-					if(iNow == $('#imgUl li').length - 1) {
+					if(iNow == $('#imgUl li').length) {
 						iNow = 1;
-						$('#imgUl').css("left", -$('img').width());
+						$('#imgUl').css("left", 0);
 					}
-					$('#imgUl').animate({"left" : - (iNow + 1)*600}, 500, 'swing');
-					if(iNow == $('#imgUl li').length - 2) {
+					$('#imgUl').animate({"left" : - iNow*600}, 500, 'swing');
+					if(iNow == $('#imgUl li').length - 1) {
 						$('#numUl li').eq(0).addClass('on').siblings().removeClass('on');
 					}else {
 						$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');

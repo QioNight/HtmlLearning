@@ -53,7 +53,7 @@
             //点击对应楼层跳转
             $('nav').on('click', 'p', function() {
                 if($(this).attr('inde')  == $('nav p').last().attr('inde')) {
-                    $('html,body').animate({'scrollTop' : 0}, 600, 'easeInOutQuint');
+                    $('html,body').stop().animate({'scrollTop' : 0}, 600, 'easeInOutQuint');
                 }else {
                     $('html,body').animate({'scrollTop' : $('.floor').height()*$(this).attr('inde')}, 600, 'easeInOutQuint');
                 }    
