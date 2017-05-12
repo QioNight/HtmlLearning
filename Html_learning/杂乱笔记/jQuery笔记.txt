@@ -201,8 +201,86 @@ $(function() {})
 
 	$.each([el,el] | {i:el,i:el}, function(i, el) {})  //循环数组或对象 js的 for( in )遍历
 
+	$.type()
+	$.trim()  //去掉字符串起始和结尾的空格
+	$.parseJSON()  // == JSON.parse() 接受一个字符串，返回对象
+	
+	$.unique()  //只能删除数组中重复的DOM元素
+	$.grep([], function(el, index) {})  //过滤数组   == arr.filter(function(index, el, arr) {})
+	
 
-
-
-
+	
+	event.pageX  //鼠标相对于文档左上角(0,0)位置
+	event.pageY
+	
+	even.offsetX  //事件源的左上角(0,0)位置
+	event.offsetY
+	
+	event.clientX  //浏览器可视区域的左上角(0,0)
+	event.clientY
+	
+	event.screenX  //设备屏幕的左上角(0,0)
+	event,screenY
+	
+	
+	
+	
+	load(url, data, function(response, status, xhr) {})  //把响应数据放到匹配元素中
+	
+	$.get(url, data, fn, type)  //使用的是ajax的http get请求 从服务器加载的数据  返回内容格式type => html\xml\script\json\text
+	
+	post 一般用于数据的提交
+	get 一般应用从服务器获取数据
+		1、get请求的速度比post的速度快  但是get传送的数据量比post小 不能大于 2KB
+		2、post传送的数据较大 理论上不受限制
+		3、get安全性非常低(因为get把发送的数据附加在url后面)
+	
+	
+	serialize()  //表单序列化
+	serializeArray()  //把表单数据转换成JSON格式的数据 (对象)
+	
+	$.getJSON()
+	$.getScript()  //使用http get请求从服务器加载并执行 JavaScript
+	
+	
+	$.ajax({
+		url : '', //请求文件的路径
+		datatype : '', //文件的内容格式
+		async : true, //设置同步 || 异步 请求
+		data : {pramt}, //向服务器提交的数据
+		cache : false //表示当前的浏览器是否缓存被请求的页面 默认true 缓存
+	})
+	
+	ajaxComplete()  //请求完成时触发
+	
+	ajaxError()  //请求失败时触发
+	ajaxSuccess()  //请求成功时触发
+	
+	
+	//设置全局ajax默认选项
+	$.ajaxSetup({
+		url : '',
+		type : '',
+		data : 
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
