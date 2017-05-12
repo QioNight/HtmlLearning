@@ -264,13 +264,28 @@ $(function() {})
 		data : 
 	})
 	
+	//插件机制
+	jQuery.fn.extend(obj)
+	jQuery.extend(obj)
+	
+		($.fn.unique = function() {})
+	$.fn.extend({
+		unique : function(a) {  //去重函数
+			var arr = [];
+			var obj = [];
+			for(var i=0; i<a.length; i++) {
+				if(!obj[a[i]]) {
+					arr.push(a[i]);
+					obj[a[i]] = 1;
+				}
+			}
+			return arr;
+		}
+	})
 	
 	
 	
-	
-	
-	
-	
+	$.extend({}, obj1, obj2)  //合并两个对象，obj2覆盖obj1，前面传入一个空empty 则不改变obj1
 	
 	
 	
