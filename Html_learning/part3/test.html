@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script src="../jquery-3.2.1.min.js"></script>
+  <script src="../jQueryValidate-1.16.0.min.js"></script>
+  <script src="../jQ_Validate_messages_zh.js"></script>
+  <script>
+    $(function() {
+      $('form').on('click', 'button', function() {
+        $('input').validate();
+      });
+    })
+  </script>
 </head>
 <body>
-  
+  <form action="#">
+    <input type="email" name="email" required >
+    <button>点击验证</button>
+  </form>
 </body>
 </html>
