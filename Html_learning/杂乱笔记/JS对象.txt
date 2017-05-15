@@ -1,0 +1,74 @@
+		JavaScript
+
+		
+1、预处理 (创建执行环境对象 声明加入对象)
+2、代码执行
+--------------------------------------
+-- 静态作用域 预处理时就确定 ------
+没有块作用域
+没有动态作用域
+--------------------------------------
+创建函数对象 创建一个作用域对象 f[[scope]]
+-- 作用域链 ------
+f.env -> f.scope -> ... -> window
+
+信息隐藏
+
+闭包   
+	是个对象(chrome closure)
+1、子函数可访问父函数的变量
+2、子函数可访问父函数的变量，即使子函数离开父函数环境
+3、子函数没有用到父函数的东西但是用到了父函数的父函数的东西
+4、注意有些书上讲，要把子函数返回到外面,再调用访问父函数里面的变量产生闭包,其实不返回也产生闭包
+
+子函数调用时，子函数的预处理阶段产生闭包
+
+
+闭包的好处：
+1、减少全局变量 (全局变量 -> 污染全局空间)
+2、减少传递函数的参数
+	//cal(2, 3) = 2+1+2+3 base = 2, max = 3
+	function cal(base) {
+		return function(max) {
+			var add = 0;
+			for(var i=0; i<=max; i++) {
+				add += i;
+			}
+			return add + base;
+		}
+	}
+	var Add = cal(2);
+	console.log( Add(3) );
+	
+3、封装
+	(function() {
+		var price = 0;
+		function getPrice() {
+			return price;
+		}
+		function setPrice(val) {
+			price = val * 0.5;
+		}
+		window.setPrice = setPrice;
+		window.getPrice = getPrice;
+	})()
+	setPrice(200);
+	console.log( getPrice() );
+	
+闭包使用的注意点：
+1、对捕获的变量只是个引用,不是复制
+2、父函数每调用一次，会产生不同的闭包
+3、循环问题 (JS没有块作用域 循环中时 注意i的取值问题)
+	<div id="1">1</div>
+	<div id="2">2</div>
+	<div id="3">3</div>
+	<script>
+		for(var i=1; i<=3; i++) {
+			var el = document.getElementById(i);
+			el.onclick = (function(id) {
+				return function() {
+					alert(id);
+				}
+			})(i) //形成闭包，每次i取值变化时，都会返回一个相应的函数
+		}
+	</script>
