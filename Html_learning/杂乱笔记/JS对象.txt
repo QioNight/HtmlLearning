@@ -72,3 +72,90 @@ f.env -> f.scope -> ... -> window
 			})(i) //形成闭包，每次i取值变化时，都会返回一个相应的函数
 		}
 	</script>
+
+Object.defineProperty定义和修改属性(-s 添加多个属性)
+	//默认是只读
+
+
+创建对象  ( 判断一个变量是不是对象 instanceof )
+	1、字面量
+		var p = {}
+		
+	2、Object
+		var p = new Object()
+			new 创建一个对象 在堆分配一个空间
+				(带new的函数叫 构造函数 \构造器)
+			Object 函数
+			
+	3、添加属性
+		属性：值， 对象， 函数
+		
+	4、对象的操作
+		访问成员(属性)
+		成员的遍历 for( in ) {}
+		输出成员的所有属性 Object.keys()
+		
+	5、构造器
+		Object.constructor  //查看构造器
+
+		对象都有一个构造器
+		构造器即是函数，也是对象
+
+		顶级构造器 Function (它的构造器就是它本身)
+			可构造  1、Object
+						{}用字面量创建
+						new Object()
+					2、Number
+						var a = 1;
+						var a = new Number( 1 );
+					3、Array
+			( 内置引用类型 叫法 1、构造器/构造函数
+								2、对象定义的类型
+								3、对象的定义称为类 )
+					
+					
+	6、对象工厂
+		1、创建相同对象，只是把对象的属性简单复制
+		2、对于共享的属性效率不高
+	
+	7、使用构造器
+		1、定义的函数是做构造器 函数名第一个字母 大写
+		2、构造器内部使用 this 代表
+
+和原型有关
+	prototype  函数的原型对象
+		( 只有函数才有 )
+		Object.constructor.prototype.common (可以找到共有的)
+
+	__proto__  指向构造函数原型的指针
+		( 对象才有的隐藏属性 )
+
+this
+	1、写在哪里
+		全局域、函数域、DOM
+	2、指向原则
+		1、运行时决定，不是代码决定
+		2、函数是谁调用，this 就指向谁
+	3、改变this 指向
+		1、call( Object, "", "" )
+		2、apply( Object, [ "", "" ] )
+			function fn(a, b) {
+				this.a = a;
+				this.b = b;
+			}
+			fn.call( f, "a", "b" );
+			fn.apply( f, [ "a", "b" ] );
+
+封装
+	1、命名空间
+	
+	2、成员封装
+		实例级别
+		静态级别
+
+
+	
+
+	
+	
+	
