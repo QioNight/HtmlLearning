@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>str取数字形成数组</title>
+    <script>
+        var str = '43fga523fsd3246fsdf23';
+        var arr = [];
+        function test(str) {
+            var re = /(?=\D*)\d+/g;
+            str.replace(re, function($0, $1) {
+                arr.push( Number($0) );
+            });
+        }
+        test(str);
+        console.log(arr);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

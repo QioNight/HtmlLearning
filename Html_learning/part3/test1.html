@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            div {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+            }
+            #box1 { background-color: #000}
+            #box2 { background-color: red}
+            #box3 { background-color: green}
+        </style>
+    </head>
+
+    <body>
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <script>
+            function Parent(id) {
+                var This = this;
+                this.box = document.getElementById(id);
+                this.box.onmousedown = function(evt) {
+                    This.starmove(evt.clientX, evt.clientY);
+                }
+            }
+            Parent.prototype.moving = function (x,y) {
+                this.box.onmousemove = function (evt) {
+                    this.style.left=evt.clientX-x+"px";
+                    this.style.top=evt.clientY-y+"px";
+                }
+            }
+            Parent.prototype.stopMove = function() {
+                this.box.onmouseup = function () {
+                    this.onmousemove=null;
+                    this.onmouseup=null;
+                }
+            }
+            Parent.prototype.starmove = function(x, y) {
+                var disX=x-this.box.offsetLeft;
+                var disY=y-this.box.offsetTop;
+                this.moving(disX,disY);
+                this.stopMove();
+            }
+            new Parent('box1');
+            new Parent('box2');
+            new Parent('box3');
+        </script>
+    </body>
+
+</html>
