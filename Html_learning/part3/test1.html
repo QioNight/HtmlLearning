@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
-        <title>Document</title>
-        <style>
-            * {
-                padding: 0;
-                margin: 0;
-            }
-            div {
-                width: 100px;
-                height: 100px;
-                position: absolute;
-            }
-            #box1 { background-color: #000}
-            #box2 { background-color: red}
-            #box3 { background-color: green}
-        </style>
+        <title>jQ_demo</title>
     </head>
-
     <body>
-        <div id="box1"></div>
-        <div id="box2"></div>
-        <div id="box3"></div>
+        <div>test1</div>
+        <div>test2</div>
         <script>
-            function Parent(id) {
-                var This = this;
-                this.box = document.getElementById(id);
-                this.box.onmousedown = function(evt) {
-                    This.starmove(evt.clientX, evt.clientY);
+            (function() {
+                var jQuery = window.jQuery = window.$ = function(s) {
+                    return new jQuery.fn.init(s);
                 }
-            }
-            Parent.prototype.moving = function (x,y) {
-                this.box.onmousemove = function (evt) {
-                    this.style.left=evt.clientX-x+"px";
-                    this.style.top=evt.clientY-y+"px";
-                }
-            }
-            Parent.prototype.stopMove = function() {
-                this.box.onmouseup = function () {
-                    this.onmousemove=null;
-                    this.onmouseup=null;
-                }
-            }
-            Parent.prototype.starmove = function(x, y) {
-                var disX=x-this.box.offsetLeft;
-                var disY=y-this.box.offsetTop;
-                this.moving(disX,disY);
-                this.stopMove();
-            }
-            new Parent('box1');
-            new Parent('box2');
-            new Parent('box3');
+                jQuery.fn = jQuery.prototype = {
+                    init: function(s) {
+                        var el = document.getElementsByTagName(s);
+                        Array.prototype.push.apply(this, el);
+                        return this;
+                    },
+                    jQuery: '1.0.0'
+                };
+
+                jQuery.fn.init.prototype = jQuery.fn;
+
+                jQuery.extend = jQuery.fn.extend = function() {
+                    var a = arguments[0];
+                    for (var b in a) {
+                        this[b] = a[b];
+                    }
+                };
+
+                jQuery.fn.extend({
+                    eq: function(num) {
+                        return this[num];
+                    },
+                    each: function(callback) {
+                        var This = this;
+                        for (var i = 0; i < this.length; i++) {
+                            (function(i) {
+                                callback(1, i);
+                            })(i)
+                        }
+                    },
+                    callback: function(a, b) {
+                        console.log(a + b);
+                    }
+                })
+            })()
+
         </script>
     </body>
-
 </html>
