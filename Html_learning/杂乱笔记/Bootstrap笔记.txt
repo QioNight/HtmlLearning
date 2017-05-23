@@ -1,0 +1,28 @@
+栅格系统
+最外面div	container	
+			container-fluid
+
+行	row
+列	col	
+		col-xs	<768px	总是水平排列
+		col-sm	>=768px
+		col-md	>=992px
+		col-lg	>=1200px
+			(组合写 跨设备)
+		
+	col-md-offset	列偏移
+	col-md-push	右推
+	col-md-pull	左拉
+	
+<abbr title="缩略语" class="initialism"> ... </abbr>
+
+图片占位符	(表示 宽100% 高300)
+<img src="holder.js/100px300" />
+
+divider	分割横线
+
+
+
+	
+	
+	

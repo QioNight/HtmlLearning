@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../bootstrap-3.3.7\css\bootstrap.css">
+        <script src="../jquery-3.2.1.js"></script>
+        <script src="../bootstrap-3.3.7\js\bootstrap.js"></script>
+        <script src="../bootstrap-3.3.7\js\holder.js"></script>
+        <title>Bootstrap</title>
+        <script>
+            $(document).ready(function() {
+                (function() {
+                    var temp = 0;
+                    var timer = setInterval(function() {
+                        temp += 1;
+                        $('.progress-bar').eq(2).css('width', temp + '%').html(temp + '%');
+                        if (temp >= 100) {
+                            clearInterval(timer);
+                            $('.progress-bar').eq(2).removeClass('progress-bar-striped');
+                        }
+                    }, 100)
+                })()
+                $('#ulA').on('click', 'a', function() {
+                    $('#ulA').prev().html($(this).html() + ' <span class="caret"></span>');
+                })
+                $('[data-toggle="tooltip"]').eq(0).tooltip();
+                $('[data-toggle="tooltip"]').eq(1).tooltip({
+                    trigger: "click"
+                });
+                $('[data-toggle="popover"]').popover();
+            })
+
+        </script>
+    </head>
+    <body data-spy="scroll" data-target="#myContent" data-offset="240" style="position: relative; padding-top: 56px;">
+        <nav class="navbar navbar-fixed-top navbar-default" style="padding: 0 40px;">
+            <div class="navbar-header">
+                <a class="navbar-brand"><span class="glyphicon glyphicon-home"></span> 前端学习</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlist">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navlist">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="javascript:;">HTML</a></li>
+                    <li><a href="javascript:;">CSS</a></li>
+                    <li><a href="javascript:;">JavaScript</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">框架<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:;">jQuery</a></li>
+                            <li><a href="javascript:;">Bootstrap-3</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:;">...</a></li>
+                            <li><a href="javascript:;">...</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="carousel slide" data-ride="carousel" id="Banner" style="margin-bottom: 20px;">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="holder.js/100px300?text=幻灯片一&random=yes" alt="" />
+                                <div class="carousel-caption">
+                                    <p>这里是图片一描述...</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="holder.js/100px300?text=幻灯片二&random=yes" alt="" />
+                                <div class="carousel-caption">
+                                    <p>这里是图片二描述...</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="holder.js/100px300?text=幻灯片三&random=yes" alt="" />
+                                <div class="carousel-caption">
+                                    <p>这里是图片三描述...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="carousel-indicators">
+                            <li data-target="#Banner" data-slide-to="0" class="active"></li>
+                            <li data-target="#Banner" data-slide-to="1"></li>
+                            <li data-target="#Banner" data-slide-to="2"></li>
+                        </ol>
+                        <a href="#Banner" class="carousel-control left" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a href="#Banner" class="carousel-control right" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+
+                    <form class="form-inline" id="selecter">
+                        <select class="form-control">
+                            <option>html</option>
+                            <option>css</option>
+                            <option>javascript</option>
+                            <option>框架</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="请输入...">
+                    </form>
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-8">
+                            <table class="table table-hover">
+                                <tr class="success">
+                                    <th>HTML</th>
+                                    <th>CSS</th>
+                                    <th>JavaScript</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="javascript:;">HTML</a></li>
+                        <li><a href="javascript:;">CSS</a></li>
+                        <li><a href="javascript:;">JavaScript</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">框架<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;">jQuery</a></li>
+                                <li><a href="javascript:;">Bootstrap-3</a></li>
+                                <li class="divider"></li>
+                                <li><a href="javascript:;">...</a></li>
+                                <li><a href="javascript:;">...</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="page-header" id="breadcrumber">路径导航</h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="">前端</a>
+                        </li>
+                        <li>
+                            <a href="">框架</a>
+                        </li>
+                        <li>
+                            <a href="">bootstrap</a>
+                        </li>
+                    </ul>
+                    <h3 class="page-header">page-header 页面标题</h3>
+                    <ul class="pagination">
+                        <li><a href="">&laquo;</a></li>
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">&raquo;</a></li>
+                    </ul>
+                    <h2 class="page-header" id="badger">Learning <span class="label label-default">bootstrap</span></h2>
+                    <span>徽章 -> 消息<span class="badge">99</span></span>
+                    <h4 class="page-header">列表组</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="">1</a><span class="badge">99</span></li>
+                        <li class="list-group-item"><a href="">2</a><span class="badge">99</span></li>
+                        <li class="list-group-item"><a href="">3</a><span class="badge">99</span></li>
+                        <li class="list-group-item"><a href="">4</a><span class="badge">99</span></li>
+                    </ul>
+                    <h2 class="page-header" id="jumbotroner">大屏展播</h2>
+                    <div class="jumbotron">
+                        <p>!!bootstrap</p>
+                        <br>
+                        <button class="btn btn-info">GoGo</button>
+                    </div>
+                    <h2 class="page-header" id="thumbnailer">缩略图</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="" class="thumbnail"><img src="holder.js/100px100?random=yes" /></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" class="thumbnail"><img src="holder.js/100px100?random=yes" /></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" class="thumbnail"><img src="holder.js/100px100?random=yes" /></a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="" class="thumbnail"><img src="holder.js/100px100?random=yes" /></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="holder.js/100px100?random=yes" />
+                                <h4>thumbnail</h4>
+                                <p>此处文字说明</p>
+                                <button class="btn btn-success-sm">按钮</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="holder.js/100px100?random=yes" />
+                                <h4>thumbnail</h4>
+                                <p>此处文字说明</p>
+                                <button class="btn btn-success-sm">按钮</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="holder.js/100px100?random=yes" />
+                                <h4>thumbnail</h4>
+                                <p>此处文字说明</p>
+                                <button class="btn btn-success-sm">按钮</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="page-header" id="alerter">警告框</h2>
+                    <div class="alert alert-danger">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <p>提示信息！！！</p>
+                    </div>
+                    <div class="alert alert-success">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <p>提示信息！！！</p>
+                    </div>
+                    <h2 class="page-header" id="progresser">进度条</h2>
+                    <!-- 多个写在一个 progress 里面 则是堆叠在一起 -->
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" style="width: 40%;">
+                            <!-- 仅仅显示文本，要显示需加上 style 加上同等的width -->
+                            <span>40%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 20%;">
+                            <span>20%</span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success progress-bar-striped"></div>
+                    </div>
+                    <h2 class="page-header" id="mediaer">媒体查询(评论)</h2>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href=""><img src="holder.js/64x64?random=yes" class="media-object"/></a>
+                        </div>
+                        <div class="media-body">
+                            <h4 calss="media-heading">媒体头部</h4>
+                            <p>内容ing</p>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href=""><img src="holder.js/64x64?random=yes" class="media-object"/></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 calss="media-heading">媒体头部</h4>
+                                    <p>内容ing</p>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href=""><img src="holder.js/64x64?random=yes" class="media-object"/></a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 calss="media-heading">媒体头部</h4>
+                                    <p>内容ing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href=""><img src="holder.js/64x64?random=yes" class="media-object"/></a>
+                        </div>
+                        <div class="media-body">
+                            <h4 calss="media-heading">媒体头部</h4>
+                            <p>内容ing</p>
+                        </div>
+                    </div>
+                    <h2 class="page-header" id="paneler">面板</h2>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">面板标题</div>
+                        <div class="panel-body">
+                            <p>内容ing</p>
+                        </div>
+                        <table class="table table-hover">
+                            <tr class="info">
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                        </table>
+                        <hr>
+                        <ul class="list-group">
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">2</li>
+                            <li class="list-group-item">3</li>
+                            <li class="list-group-item">4</li>
+                            <li class="list-group-item">5</li>
+                        </ul>
+                        <div class="panel-footer">脚注</div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">选择 <span class="caret"></span></button>
+                            <ul class="list-group dropdown-menu" id="ulA">
+                                <li class="list-group-item"><a href="javascript:;">HTML</a></li>
+                                <li class="list-group-item"><a href="javascript:;">CSS</a></li>
+                                <li class="list-group-item"><a href="javascript:;">JavaScript</a></li>
+                                <li class="list-group-item"><a href="javascript:;">框架</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control" placeholder="请输入...">
+                    </div>
+                    <br>
+                    <div class="panel-group" id="panelG">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title btn" data-toggle="collapse" data-target="#ul1" data-parent="#panelG">栏目1 <span class="caret"></span></h3>
+                            </div>
+                            <div class="collapse in" id="ul1">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">1</a></li>
+                                        <li><a href="">2</a></li>
+                                        <li><a href="">3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title btn" data-toggle="collapse" data-target="#ul2" data-parent="#panelG">栏目2 <span class="caret"></span></h3>
+                            </div>
+                            <div class="collapse" id="ul2">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">1</a></li>
+                                        <li><a href="">2</a></li>
+                                        <li><a href="">3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title btn" data-toggle="collapse" data-target="#ul3" data-parent="#panelG">栏目3 <span class="caret"></span></h3>
+                            </div>
+                            <div class="collapse" id="ul3">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="">1</a></li>
+                                        <li><a href="">2</a></li>
+                                        <li><a href="">3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="page-header" id="modaler">模态框</h2>
+                    <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#DemoModal">Demo Modal</button>
+                    <div class="modal fade" id="DemoModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="close" data-dismiss="modal">&times;</div>
+                                    <h4>Modal Title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h2>内容</h2>
+                                    <p>ing...</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-default" data-dismiss="modal">close</button>
+                                    <button class="btn btn-primary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="holder.js/100px300?random=yes&text=点击上面按钮" alt="" />
+                    <hr>
+                    <h2 class="page-header" id="scroller">滚动监听</h2>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h2>滚动</h2>
+                        </div>
+                        <div class="panel-body">
+                            <p>data-offset 设置跳转距离</p>
+                            <p>data-spy = "scroll" data-target = "#mynav" 一般在body设置</p>
+                            <p>但是缺点 点击nav不能很友善的定位 只能 通过JS设置</p>
+                        </div>
+                        <div class="panel-footer">
+                            <p>滚动监听的一些事</p>
+                        </div>
+                    </div>
+                    <h2 class="page-header" id="navtab">标签页</h2>
+                    <ul class="nav nav-tabs">
+                        <li><a href="#pane1" data-toggle="tab">HTML</a></li>
+                        <li><a href="#pane2" data-toggle="tab">CSS</a></li>
+                        <li><a href="#pane3" data-toggle="tab">JavaScript</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade" id="pane1">
+                            <h2>内容</h2>
+                            <p>HTML ing...</p>
+                        </div>
+                        <div class="tab-pane fade" id="pane2">
+                            <h2>内容</h2>
+                            <p>CSS ing...</p>
+                        </div>
+                        <div class="tab-pane fade active" id="pane3">
+                            <h2>内容</h2>
+                            <p>JavaScript ing...</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2 class="page-header" id="tooltiper">工具提示框</h2>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" title="这是提示" data-toggle="tooltip" data-placement="left">进入提示</button>
+                        <button class="btn btn-primary" title="这是提示" data-toggle="tooltip" data-placement="top">点击提示</button>
+                        <button class="btn btn-primary" title="这是title" data-toggle="popover" data-content="这是content!!" data-placement="right">弹出框</button>
+                    </div>
+                    <img src="holder.js/100px300?random=yes&text=弹出框可以有title和content" class="img-circle" />
+                </div>
+                <div class="col-md-1 col-md-push-1" id="myContent">
+                    <ul class="nav nav-pills nav-stacked" data-spy="affix">
+                        <li><a href="#selecter">table</a></li>
+                        <li><a href="#breadcrumber">导航</a></li>
+                        <li><a href="#badger">徽章</a></li>
+                        <li><a href="#jumbotroner">大屏展播</a></li>
+                        <li><a href="#thumbnailer">缩略图</a></li>
+                        <li><a href="#alerter">警告框</a></li>
+                        <li><a href="#progresser">进度条</a></li>
+                        <li><a href="#mediaer">媒体查询</a></li>
+                        <li><a href="#paneler">面板</a></li>
+                        <li><a href="#modaler">模态框</a></li>
+                        <li><a href="#scroller">滚动监听</a></li>
+                        <li><a href="#navtab">标签页</a></li>
+                        <li><a href="#tooltiper">工具提示框</a></li>
+                        <li><a href="#">返回顶部</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

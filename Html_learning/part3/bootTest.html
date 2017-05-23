@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../bootstrap-3.3.7\css\bootstrap.css">
+        <script src="../jquery-3.2.1.js"></script>
+        <script src="../bootstrap-3.3.7\js\bootstrap.js"></script>
+        <script src="../bootstrap-3.3.7\js\holder.js"></script>
+        <title>Document</title>
+        <style>
+            .badge {
+                background-color: red;
+            }
+
+            @media (min-width: 768px) {
+                #mynav {
+                    position: absolute;
+                    left: 0;
+                    top: 52px;
+                    padding-top: 20px;
+                    width: 250px;
+                    height: 700px;
+                    background-color: #f8f8f8;
+                }
+
+                #mainer {
+                    margin-left: 260px;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" style="position: relative;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="javascript:;" class="navbar-brand">网站后台管理</a>
+                    <button class="btn btn-default navbar-toggle" data-toggle="collapse" data-target="#mynav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                </div>
+                <p class="navbar-right navbar-text" style="margin-right: 40px;">
+                    <a class="navbar-link" href="javascript:;"><span class="glyphicon glyphicon-off "></span> 注销</a>
+                </p>
+                <p class="navbar-right navbar-text">
+                    <a href="javascript:;"><span class="badge">23</span></a>
+                </p>
+            </div>
+            <div id="mynav">
+                <ul class="nav">
+                    <li>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="javascript:;">系统功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
+                    <li><a href="javascript:;">栏目功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
+                    <li><a href="javascript:;">产品功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
+                    <li><a href="javascript:;">新闻功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid" id="mainer">
+            <ul class="breadcrumb">
+                <li><a href="#">管理首页</a></li>
+                <li><a href="#">栏目管理</a></li>
+                <li>增加栏目</li>
+            </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p>最新订单</p>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr class="default">
+                                        <th>#</th>
+                                        <th>订单号</th>
+                                        <th>订单日期</th>
+                                        <th>总价</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p>最新订单</p>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr class="default">
+                                        <th>#</th>
+                                        <th>订单号</th>
+                                        <th>订单日期</th>
+                                        <th>总价</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p>最新订单</p>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover table-bordered table-striped">
+                                <thead>
+                                    <tr class="default">
+                                        <th>#</th>
+                                        <th>订单号</th>
+                                        <th>订单日期</th>
+                                        <th>总价</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>012345</td>
+                                        <td>2016-12-12 13:13:13</td>
+                                        <td>2365.70</td>
+                                        <td>出库</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
