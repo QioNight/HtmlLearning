@@ -17,8 +17,6 @@
             @media (min-width: 768px) {
                 #mynav {
                     position: absolute;
-                    left: 0;
-                    top: 52px;
                     padding-top: 20px;
                     width: 250px;
                     height: 700px;
@@ -31,6 +29,26 @@
             }
 
         </style>
+        <script>
+            $(document).ready(function() {
+                var aLi = $('#mynav').children('ul').children('li');
+                for (var i = 0; i < aLi.length; i++) {
+                    var temp = aLi[i];
+                    temp.onclick = (function(a) {
+
+                        return function() {
+                            for (var j = 1; j < aLi.length; j++) {
+                                var temp = aLi[j].getElementsByTagName('ul')[0];
+                                temp.classList.add('collapse');
+                            }
+                            $(this).children('ul').removeClass('collapse');
+                            $(this).children('ul').addClass('collapsed');
+                        }
+                    })(i)
+                }
+            });
+
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-default" style="position: relative;">
@@ -50,7 +68,7 @@
                     <a href="javascript:;"><span class="badge">23</span></a>
                 </p>
             </div>
-            <div id="mynav">
+            <div id="mynav" class="navbar-collapse">
                 <ul class="nav">
                     <li>
                         <div class="input-group">
@@ -60,10 +78,38 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="javascript:;">系统功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
-                    <li><a href="javascript:;">栏目功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
-                    <li><a href="javascript:;">产品功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
-                    <li><a href="javascript:;">新闻功能 <span class="glyphicon glyphicon-menu-right"></span></a></li>
+                    <li><a class="collapse" data-toggle="collapse" href="">系统功能 <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                        <ul id="nav1" class="nav collapse">
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-info-sign"></span> 系统信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-user"></span> 管理员管理</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> 日志信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-remove-circle"></span> 退出</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="collapse" data-toggle="collapse" href="">栏目功能 <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                        <ul id="nav2" class="nav collapse">
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-info-sign"></span> 系统信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-user"></span> 管理员管理</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> 日志信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-remove-circle"></span> 退出</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="collapse" data-toggle="collapse" href="">产品功能 <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                        <ul id="nav3" class="nav collapse">
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-info-sign"></span> 系统信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-user"></span> 管理员管理</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> 日志信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-remove-circle"></span> 退出</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="collapse" data-toggle="collapse" href="">新闻功能 <span class="glyphicon glyphicon-menu-right pull-right"></span></a>
+                        <ul id="nav4" class="nav collapse">
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-info-sign"></span> 系统信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-user"></span> 管理员管理</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-list-alt"></span> 日志信息</a></li>
+                            <li><a href="javascript:;"><span class="glyphicon glyphicon-remove-circle"></span> 退出</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -227,6 +273,15 @@
                     </div>
                 </div>
             </div>
+            <ul class="pagination pull-right">
+                <li><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">1</a></li>
+                <li><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+                <li><a href="javascript:;">尾页</a></li>
+            </ul>
         </div>
     </body>
 </html>

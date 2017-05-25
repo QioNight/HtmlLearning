@@ -8,6 +8,7 @@
 				padding: 0;
 				margin: 0;
 			}
+
 			div {
 				width: 600px;
 				height: 400px;
@@ -16,27 +17,33 @@
 				border: 1px blue solid;
 				overflow: hidden;
 			}
+
 			li {
 				list-style: none;
 			}
+
 			#imgUl {
 				position: relative;
 				top: 0;
 			}
+
 			#imgUl>li {
 				float: left;
 				position: relative;
 			}
+
 			#imgUl>li>img {
 				width: 600px;
 				height: 400px;
 			}
+
 			#numUl {
 				position: absolute;
 				right: 0;
 				bottom: 0;
 				display: none;
 			}
+
 			#numUl>li {
 				display: inline-block;
 				width: 30px;
@@ -48,9 +55,11 @@
 				border-radius: 50%;
 				cursor: pointer;
 			}
+
 			.on {
 				background: red;
 			}
+
 			span {
 				display: block;
 				position: absolute;
@@ -65,14 +74,16 @@
 				cursor: pointer;
 				display: none;
 			}
+
 			span:nth-of-type(2) {
 				right: 0;
 			}
+
 		</style>
 		<script src="../../jquery-3.2.1.min.js"></script>
 		<script>
 			$(function() {
-				    //图片自动轮播 递归
+				//图片自动轮播 递归
 				// (function fn(iNum) {
 				// 	$('#numUl>li').each(function() {
 				// 		$(this).removeClass('on');
@@ -91,21 +102,23 @@
 
 				//添加第一张到最后,并设置图片ul的width
 				var aFirstImg = $('#imgUl li').first().clone();
-				$('#imgUl').append(aFirstImg).width( ($('#imgUl li').length) * ($('img').width()) );
-				
+				$('#imgUl').append(aFirstImg).width(($('#imgUl li').length) * ($('img').width()));
+
 				var iNow = 0;
 
 				//定时 自动轮播
 				function toRun() {
 					iNow++;
-					if(iNow ==$('#imgUl li').length) {
+					if (iNow == $('#imgUl li').length) {
 						iNow = 1;
 						$('#imgUl').css("left", 0);
 					}
-					$('#imgUl').animate({"left" :  - iNow*600}, 1600, 'swing');
-					if(iNow == $('#imgUl li').length - 1) {
+					$('#imgUl').animate({
+						"left": -iNow * 600
+					}, 1600, 'swing');
+					if (iNow == $('#imgUl li').length - 1) {
 						$('#numUl li').eq(0).addClass('on').siblings().removeClass('on');
-					}else {
+					} else {
 						$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 					}
 				}
@@ -127,35 +140,42 @@
 
 				//经过小圆点移动，stop()阻止当前动画并开始下一个
 				$('#numUl li').hover(function() {
-						$(this).addClass('on').siblings().removeClass('on');
-						iNow = $(this).index();
-						$('#imgUl').stop().animate({"left" : - iNow*600}, 400, 'swing');
-					});
+					$(this).addClass('on').siblings().removeClass('on');
+					iNow = $(this).index();
+					$('#imgUl').stop().animate({
+						"left": -iNow * 600
+					}, 400, 'swing');
+				});
 				//上一张
 				$('span').eq(0).click(function() {
 					iNow--;
-					if(iNow == -1) {
+					if (iNow == -1) {
 						iNow = $('#imgUl li').length - 2;
-						$('#imgUl').css("left", -($('#imgUl li').length - 1)*600);
+						$('#imgUl').css("left", -($('#imgUl li').length - 1) * 600);
 					}
-					$('#imgUl').stop().animate({"left" : - iNow*600}, 500, 'swing');
+					$('#imgUl').stop().animate({
+						"left": -iNow * 600
+					}, 500, 'swing');
 					$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 				});
 				//下一张
 				$('span').eq(1).click(function() {
 					iNow++;
-					if(iNow == $('#imgUl li').length) {
+					if (iNow == $('#imgUl li').length) {
 						iNow = 1;
 						$('#imgUl').css("left", 0);
 					}
-					$('#imgUl').stop().animate({"left" : - iNow*600}, 500, 'swing');
-					if(iNow == $('#imgUl li').length - 1) {
+					$('#imgUl').stop().animate({
+						"left": -iNow * 600
+					}, 500, 'swing');
+					if (iNow == $('#imgUl li').length - 1) {
 						$('#numUl li').eq(0).addClass('on').siblings().removeClass('on');
-					}else {
+					} else {
 						$('#numUl li').eq(iNow).addClass('on').siblings().removeClass('on');
 					}
 				});
 			})
+
 		</script>
 	</head>
 	<body>
