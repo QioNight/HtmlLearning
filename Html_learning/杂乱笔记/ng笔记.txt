@@ -1,0 +1,72 @@
+	AngularJS
+MVC 模块化 双向数据绑定 指令
+
+ng生命周期 简单分为 3 个阶段
+	(每次浏览器加载web页面)
+	1、启动：ng下载到浏览器，初始化所需组件，初始化根模块（ng-app），模块加载并可用
+	2、编译：web页面 编译静态DOM加载浏览器 遍历静态DOM所有指令，把指令链接到内置ng库或自定义指令代码中，最后再生成实时视图
+	3、运行：运行时数据绑定 数据模型绑定视图
+
+MVC
+	设计结构 职责划分
+M(model) 数据模型（数据）
+V(view) 视图（展示数据）
+C(controller) 控制器（实现 M和V 交互）
+
+model -> view
+模板 + model + controller -> view
+( {{表达式}} + $scope + js -> view )
+
+
+
+模块
+	一切都是从模块开始
+	可以放
+		控制器、指令、过滤器(数据显示格式)
+		
+	定义ng根元素 (ng-app)
+
+双向绑定
+	ng-model
+	
+指令
+(元素、属性、样式类、注释)
+	var App = angular.module("appName", [])
+	
+	App.controller("appCtrl", function($scope){})  //控制器 初始化scope 数据
+	
+	ng-model="obj"  //通过obj变量双向绑定值
+	
+	$scope.$apply()  //ng需要手动将数据变化映射到DOM
+	
+	ng-repeat  
+
+	ng-include  //嵌套模板
+	
+	ng-show  //显示或隐藏
+	
+	checkbox
+		ng-ture-value = "yes" | ng-false-value = "no"
+	radio
+	select
+		ng-options ( xx group by xx for xx in xx )
+	
+	ng-style
+	
+	ng-if
+	
+	ng-bind  //加载是可能看到表达式 {{}}
+	
+脏数据检查
+$watch
+$digest
+
+过滤器
+	number
+	currency
+	date
+	json
+	uppercase
+	lowercase
+	
+	
