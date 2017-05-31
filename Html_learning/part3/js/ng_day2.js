@@ -38,14 +38,20 @@ angular.module('myTest', [])
     })
     .controller('LevelB', function($scope) {
         $scope.title = 'LevelB';
-        $scope.valueB = 22;
+        $scope.valueB = 21;
+        $scope.$watch('valueA', function() {
+            $scope.valueB++;
+        })
         $scope.inc = function() {
             $scope.valueB++;
         }
     })
     .controller('LevelC', function($scope) {
         $scope.title = 'LevelC';
-        $scope.valueC = 33;
+        $scope.valueC = 32;
+        $scope.$watch('valueB', function() {
+            $scope.valueC++;
+        })
         $scope.inc = function() {
             $scope.valueC++;
         }

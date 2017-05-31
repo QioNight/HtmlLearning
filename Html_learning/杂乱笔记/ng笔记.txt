@@ -55,7 +55,16 @@ model -> view
 	
 	ng-if
 	
-	ng-bind  //加载是可能看到表达式 {{}}
+	ng-bind  //解决加载是可能看到表达式 {{}}
+	
+	$inject  //注入器
+	
+	$enevt  
+	
+	angular.element()  //把原生的don对象转换为jq lite对象
+					   //jq lite 是angular内置
+					   
+	ng-class
 	
 脏数据检查
 $watch
@@ -70,3 +79,42 @@ $digest
 	lowercase
 	
 	
+	
+ng的模块化
+
+
+配置
+	.config( function($provide) {...})
+运行 //依赖注入之后	
+	.run( function() {...}) //传参 可以走动获取到config内的设置值
+	
+	
+路由
+1、根据URL切换不同内容
+2、根据路由保存history 便于实现标签管理
+	//ng-route	(ng-view)
+	.config([$routeProvider, function($routeProvider) {
+		$routeProvider.when('/路径', {
+			templateUrl: 'tpls/xx.html',
+			controller: '控制器'
+		}).when('/路径', {
+			templateUrl: 'tpls/xx.html',
+			controller: '控制器'
+		}).otherwise({
+			redirectTo: '/路径'
+		});
+	}])
+	
+	//angular-ui-route	(ui-view) [第三方]
+	.config([$stateProvider, $urlRouteProvider, function($stateProvider, $urlRouteProvider) {
+		$urlRouteProvider.otherwise('/url');  //不匹配时
+		$stateProvider.state('name', {
+			url: '/url',
+			templateUrl: 'tpls/xx.html',
+			controller: '控制器'
+		})；
+	}])
+			//<a ui-sref=""></a>  ui-sref属性实现状态转换
+			
+	@  绝对定位
+	.  相对
