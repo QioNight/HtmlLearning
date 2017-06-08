@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                width: 400px;
+                height: 400px;
+                margin: 80px auto;
+                border: 2px solid #000;
+                position: relative;
+                perspective: 900px;
+            }
+
+            .wrap {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -50px;
+                margin-left: -50px;
+                transform-style: preserve-3d;
+                animation: starMoving 10s linear infinite alternate;
+            }
+
+            li {
+                width: 100px;
+                height: 100px;
+                list-style: none;
+                text-align: center;
+                line-height: 100px;
+                font-size: 40px;
+                color: #fff;
+                position: absolute;
+            }
+
+            li:nth-of-type(1) {
+                background-color: red;
+                transform: translateZ(-50px) rotateZ(180deg);
+            }
+
+            li:nth-of-type(2) {
+                background-color: blue;
+                top: -50px;
+                transform: rotateX(90deg);
+            }
+
+            li:nth-of-type(3) {
+                background-color: green;
+                left: -50px;
+                transform: rotateY(-90deg);
+            }
+
+            li:nth-of-type(4) {
+                background-color: blue;
+                top: 50px;
+                transform: rotateX(-90deg);
+            }
+
+            li:nth-of-type(5) {
+                background-color: green;
+                left: 50px;
+                transform: rotateY(90deg);
+            }
+
+            li:nth-of-type(6) {
+                background-color: red;
+                transform: translateZ(50px);
+            }
+
+            @keyframes starMoving {
+                0% {
+                    transform: rotateX(0deg) rotateY(0deg);
+                }
+                20% {
+                    transform: rotateX(360deg) rotateY(0deg);
+                }
+                50% {
+                    transform: rotateX(0deg) rotateY(-180deg);
+                }
+                80% {
+                    transform: rotateX(-380deg) rotateY(400deg);
+                }
+                100% {
+                    transform: rotateX(0deg) rotateY(0deg);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <ul class="wrap">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </body>
+</html>

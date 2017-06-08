@@ -1,0 +1,74 @@
+PHP
+标记符
+	<?php 
+		...
+	?>
+	
+输出
+	echo
+	print
+		//echo输出速度快，可以一个或多个字符串	echo "a","b";
+		//print一次只能输出一个字符串
+
+数据类型
+	String	integer	Boolean	Null	float	Array	Object
+	
+测试数据类型
+	var_dump()	//输出变量的类型和值
+	is_bool()	//检查变量是否为boolean类型，返回true|false
+	is_string()
+	is_float() / is_double()
+	is_integer() / is_int()
+	is_null()
+	is_array()
+	is_object()
+	is_numeric()	//是否为数字或由数字组成的字符串
+	
+变量在双引号里可以被解析，在单引号里面不能解析
+
+字符串连接符
+	. (点)
+	
+数组
+	$arr = [1,2,3]	//PHP5.4之后的版本才使用
+
+定义关联数组
+	array( "键"=>"值", "name"=>"张三" )
+遍历关联数组
+	foreach ( $arr as $key => $value ) {
+		...
+	}
+	
+	
+常量的定义
+	//常量的值不能改变 define()函数定义 常量一般定义成大写字母的形式
+	define( "NAME", "值", true )	//默认false区分大小写，设置true即访问常量时不区分大小写
+	
+函数定义
+	function name() { ... }
+	name()	//调用
+变量的作用域
+	/* 1、全局变量	定义在函数外部的变量	在函数外的所有地方都可以访问	使用 global 关键字声明则可以在函数内部访问
+	   2、局部变量(包括函数参数)	函数内部	只能在函数内部访问
+	   3、静态变量	定义在函数内部，并使用 static 关键字修饰的变量	作用 可以使局部变量保留在内存中
+	*/
+	
+php把所有的全局变量存储在一个名为 $GLOBALS[index] 的数组中(超全局变量) 可以在脚本中任何地方使用
+
+传参
+	1、按值传参
+		function name( $a ) {...}
+	2、按引用传参	(实参的内存地址传递到形参中 函数内部的操作会影响实参的值)
+		function name( &$a ) {...}
+		
+strlen() 	//字符串长度
+
+strpos()	//指定字符在字符串中首次出现的位置
+	stripos()	//不区分大小写
+
+strrpos()	//指定字符在字符串中最后一次出现的位置
+	strripos()	//不区分大小写
+	
+explode(".", $xx)	//把字符串分为数组 split()
+
+implode()	//数组 -> 字符串

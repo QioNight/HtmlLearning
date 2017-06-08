@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myTest">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Directive</title>
+    </head>
+    <body>
+        <div ng-controller="myCtrl1">
+            <nr>Test 1</nr>
+        </div>
+        <hr>
+        <div ng-controller="myCtrl2">
+            <nr>Test 2</nr>
+        </div>
+    </body>
+    <script src="../angular-1.3.0/angular.js"></script>
+    <script type="text/javascript">
+        angular.module('myTest', [])
+            .controller('myCtrl1', function($scope) {
+                $scope.test = function() {
+                    console.log('Test 1 !!');
+                }
+            })
+            .controller('myCtrl2', function($scope) {
+                $scope.test = function() {
+                    console.log('Test 2 !!');
+                }
+            })
+            .directive('nr', function() {
+                return {
+                    restrict: 'AE',
+                    // template: '<div style="width: 100px; height:100px; background-color: red;"></div>',
+                    link: function(scope, element) {
+                        element.on('mouseenter', function() {
+                            scope.test();
+                        });
+                    }
+                };
+            });
+
+    </script>
+</html>

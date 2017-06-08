@@ -1,0 +1,55 @@
+<hgroup>
+	<header>头部</header>
+	<nav>导航</nav> 
+</hgroup>
+<article>
+	主体部分
+	<section>
+		章节标签
+		<form autocomplete="on" novalidate>
+			<figure>
+				<figcaption>标题</figcaption>
+				一段独立流内容
+			</figure>
+			<details>
+				<summary>标题，点击显示内容</summary>
+				内容
+			</details>
+			<progress value="xx%" >
+				进度条
+			</progress>
+			<mark>高亮</mark>
+			<input type="seach" />搜索
+		</form>
+		<video>
+			视频
+			(<video src="" controls autoars autoplay loop preload>)
+			<source> (可以多个 识别第一个向下)
+		</video>
+		<audio>音频</audio>
+		<embed scr="xxx.swf" />嵌入(可以视频/音频)
+	</section>
+	<aside>
+		侧边栏
+	</aside>
+	<footer></footer>
+</article>
+
+
+
+
+transition	//过渡
+
+transform
+	2D
+		rotate	//旋转
+		translate	//平移
+		
+	3D
+		perspective (一般用在父元素 眼睛到物体的距离)
+			//透视、视角。用以激活3D
+		transform-style: preserve-3d;
+		
+transform-origin	//改变基点
+(perspective-origin: 50%,50%;	//3D 默认所看舞台中心)
+

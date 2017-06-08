@@ -22,7 +22,7 @@ angular.module('myTest', ['ui.router'])
                     'module2@index': { templateUrl: 'tpls/model2.html' }
                 }
             })
-            
+
             .state('index.model1.test1', {
                 url: '/test1',
                 templateUrl: 'tpls/test1.html'

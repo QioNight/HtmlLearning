@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            ul:after {
+                display: block;
+                content: "";
+                clear: both;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+            }
+
+            ul {
+                zoom: 1;
+                width: 600px;
+                background: rgba(246, 95, 87, 0.8);
+                border-radius: 10px;
+                box-shadow: 0px 5px red;
+            }
+
+            li {
+                list-style: none;
+                float: left;
+                width: 100px;
+                height: 50px;
+                font-size: 16px;
+                line-height: 50px;
+                text-align: center;
+            }
+
+            li:after {
+                content: "|";
+                background: linear-gradient(to bottom, red, green);
+            }
+
+            li:last-child:after {
+                content: "";
+            }
+
+            li:first-child:after {
+                margin-left: 12px;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                text-shadow: 2px -2px 2px #000;
+                margin-right: 18px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#">主页</a></li>
+                <li><a href="#">专家师资</a></li>
+                <li><a href="#">高端课程</a></li>
+                <li><a href="#">教学保障</a></li>
+                <li><a href="#">企业招聘</a></li>
+                <li><a href="#">高新就业</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>

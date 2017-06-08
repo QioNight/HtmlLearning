@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myTest">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <coffee suga id="1">myCoffee suga</coffee><br>
+            <!-- </div>
+        <div> -->
+            <coffee suga milk>myCoffee suga milk</coffee><br>
+            <!-- </div>
+        <div> -->
+            <coffee suga milk vodka>myCoffee suga milk vodka</coffee>
+        </div>
+    </body>
+    <script src="../angular-1.3.0/angular.js"></script>
+    <script>
+        angular.module('myTest', [])
+            .directive('coffee', function() {
+                return {
+                    restrict: 'AE',
+                    scope: {},
+                    controller: function($scope) {
+                        $scope.myCoffee = [];
+                        this.addSuga = function() {
+                            $scope.myCoffee.push('suga');
+                        };
+                        this.addMilk = function() {
+                            $scope.myCoffee.push('milk');
+                        };
+                        this.addVodka = function() {
+                            $scope.myCoffee.push('vodka');
+                        };
+                    },
+                    link: function(scope, element, attrs) {
+                        element.on('mouseenter', function() {
+                            console.log(scope.myCoffee);
+                        })
+                    }
+                };
+            })
+            .directive('suga', function() {
+                return {
+                    restrict: 'AE',
+                    require: '^coffee',
+                    link: function(scope, element, attrs, coffeeCtrl) {
+                        coffeeCtrl.addSuga();
+                    }
+                };
+            })
+            .directive('milk', function() {
+                return {
+                    restrict: 'AE',
+                    require: '^coffee',
+                    link: function(scope, element, attrs, coffeeCtrl) {
+                        coffeeCtrl.addMilk();
+                    }
+                };
+            })
+            .directive('vodka', function() {
+                return {
+                    restrict: 'AE',
+                    require: '^coffee',
+                    link: function(scope, element, attrs, coffeeCtrl) {
+                        coffeeCtrl.addVodka();
+                    }
+                };
+            })
+
+    </script>
+</html>
